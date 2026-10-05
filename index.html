@@ -1,523 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Avaliação pré-viagem · Tupperware · Foz do Iguaçu</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
-  <meta name="referrer" content="no-referrer">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Formulário de saúde para avaliação médica antes da viagem da Tupperware a Foz do Iguaçu.">
-  <meta name="theme-color" content="#123f38">
-  <style>
-    :root {
-      --ink: #18202a;
-      --muted: #6f7782;
-      --soft: #8f98a3;
-      --paper: #fffdfa;
-      --canvas: #f2efe9;
-      --line: #e8e2d8;
-      --navy: #1f3550;
-      --navy-deep: #16283d;
-      --navy-soft: #edf2f6;
-      --gold: #b99a62;
-      --gold-soft: #f5efe3;
-      --danger: #9f3a38;
-      --danger-bg: #fff5f4;
-      --radius-lg: 26px;
-      --radius-md: 14px;
-      --radius-sm: 10px;
-      --shadow: 0 30px 80px -46px rgba(27, 35, 45, .48);
-      --transition: 180ms ease;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      padding: 48px 18px;
-      background:
-        radial-gradient(circle at top left, rgba(185,154,98,.11), transparent 34%),
-        linear-gradient(180deg, #f5f2ec 0%, var(--canvas) 100%);
-      color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      position: relative;
-      width: min(100%, 760px);
-      margin: 0 auto;
-      overflow: hidden;
-      background: var(--paper);
-      border: 1px solid rgba(185,154,98,.22);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      padding: 0 48px 48px;
-    }
-
-    .container::before {
-      content: "";
-      display: block;
-      height: 5px;
-      margin: 0 -48px 0;
-      background: linear-gradient(90deg, var(--navy-deep), var(--navy), var(--gold));
-    }
-
-    .header {
-      position: relative;
-      text-align: left;
-      padding: 46px 0 28px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .header::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      top: 46px;
-      width: 54px;
-      height: 54px;
-      border: 1px solid rgba(185,154,98,.28);
-      border-radius: 50%;
-      box-shadow:
-        inset 0 0 0 8px rgba(185,154,98,.05),
-        inset 0 0 0 16px rgba(31,53,80,.025);
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 6px 11px;
-      margin-bottom: 16px;
-      border: 1px solid rgba(185,154,98,.34);
-      border-radius: 999px;
-      background: var(--gold-soft);
-      color: #7e6439;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      max-width: 560px;
-      margin: 0;
-      color: var(--navy-deep);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(31px, 6vw, 43px);
-      font-weight: 500;
-      line-height: 1.02;
-      letter-spacing: -.035em;
-    }
-
-    .subtitle {
-      margin: 12px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .intro {
-      position: relative;
-      margin-bottom: 34px;
-      padding: 18px 20px 18px 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: linear-gradient(135deg, #fbfaf7, #f7f3ec);
-      color: var(--muted);
-      font-size: 13.5px;
-    }
-
-    .intro::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 18px;
-      bottom: 18px;
-      width: 3px;
-      border-radius: 999px;
-      background: var(--gold);
-    }
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 38px 0 20px;
-      color: var(--navy);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .section-title::before {
-      content: "";
-      width: 22px;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    .section-title::after {
-      content: "";
-      height: 1px;
-      flex: 1;
-      background: var(--line);
-    }
-
-    .form-group { margin-bottom: 22px; }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    label.question {
-      display: block;
-      margin-bottom: 9px;
-      color: var(--ink);
-      font-size: 14px;
-      font-weight: 650;
-      letter-spacing: -.005em;
-    }
-
-    .hint {
-      display: block;
-      margin-top: 4px;
-      color: var(--soft);
-      font-size: 12px;
-      font-weight: 400;
-    }
-
-    input[type="text"],
-    input[type="tel"],
-    input[type="date"],
-    textarea {
-      width: 100%;
-      min-height: 48px;
-      padding: 12px 14px;
-      border: 1px solid #ddd6cb;
-      border-radius: var(--radius-sm);
-      background: rgba(255,255,255,.94);
-      color: var(--ink);
-      font: inherit;
-      font-size: 14px;
-      outline: none;
-      transition:
-        border-color var(--transition),
-        box-shadow var(--transition),
-        background var(--transition);
-    }
-
-    textarea {
-      min-height: 92px;
-      resize: vertical;
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: var(--gold);
-      background: #fff;
-      box-shadow: 0 0 0 4px rgba(185,154,98,.12);
-    }
-
-    input::placeholder,
-    textarea::placeholder { color: #a7adb4; }
-
-    .radio-group {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .radio-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 9px 14px;
-      border: 1px solid #ded8ce;
-      border-radius: 12px;
-      background: rgba(255,255,255,.9);
-      cursor: pointer;
-      user-select: none;
-      color: #4d5661;
-      font-size: 13.5px;
-      font-weight: 650;
-      transition:
-        border-color var(--transition),
-        background var(--transition),
-        color var(--transition),
-        transform var(--transition);
-    }
-
-    .radio-item:hover {
-      border-color: #cfc5b5;
-      background: #fbfaf7;
-    }
-
-    .radio-item:has(input:checked) {
-      border-color: var(--navy);
-      background: var(--navy-soft);
-      color: var(--navy);
-      box-shadow: inset 0 0 0 1px rgba(31,53,80,.03);
-    }
-
-    .radio-item input {
-      margin: 0 8px 0 0;
-      accent-color: var(--navy);
-    }
-
-    .dynamic {
-      display: none;
-      margin-top: 11px;
-      padding: 14px;
-      border: 1px solid #e6ddcf;
-      border-radius: 12px;
-      background: #fbf8f2;
-    }
-
-    .dynamic.visible {
-      display: block;
-      animation: reveal .18s ease-out;
-    }
-
-    @keyframes reveal {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .declaration {
-      margin-top: 8px;
-      padding: 19px 20px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: linear-gradient(135deg, #faf8f4, #f7f3ec);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .check-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-top: 15px;
-      cursor: pointer;
-      color: var(--ink);
-      font-size: 13.5px;
-      font-weight: 650;
-    }
-
-    .check-row input {
-      width: 18px;
-      height: 18px;
-      margin: 2px 0 0;
-      flex: 0 0 auto;
-      accent-color: var(--navy);
-    }
-
-    .actions { margin-top: 30px; }
-
-    .btn {
-      width: 100%;
-      min-height: 52px;
-      border: 0;
-      border-radius: 13px;
-      background: linear-gradient(180deg, #243f5e, var(--navy-deep));
-      color: #fff;
-      cursor: pointer;
-      font: inherit;
-      font-size: 14.5px;
-      font-weight: 750;
-      letter-spacing: .01em;
-      box-shadow: 0 10px 24px -12px rgba(22,40,61,.65);
-      transition:
-        transform var(--transition),
-        box-shadow var(--transition),
-        filter var(--transition);
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 28px -14px rgba(22,40,61,.72);
-      filter: brightness(1.02);
-    }
-
-    .privacy-note {
-      margin: 11px 0 0;
-      color: var(--soft);
-      text-align: center;
-      font-size: 11px;
-    }
-
-    .error-box {
-      display: none;
-      margin: 0 0 22px;
-      padding: 12px 14px;
-      border: 1px solid #e7bbb8;
-      border-radius: 12px;
-      background: var(--danger-bg);
-      color: var(--danger);
-      font-size: 13px;
-      font-weight: 650;
-    }
-
-    .error-box.visible { display: block; }
-
-    .invalid {
-      border-color: #c7635f !important;
-      box-shadow: 0 0 0 3px rgba(199,99,95,.10) !important;
-    }
-
-    @media (max-width: 620px) {
-      body {
-        padding: 12px 8px 24px;
-        background: #f3f0ea;
-      }
-
-      .container {
-        padding: 0 18px 28px;
-        border-radius: 18px;
-      }
-
-      .container::before {
-        margin: 0 -18px;
-      }
-
-      .header {
-        padding: 34px 0 22px;
-      }
-
-      .header::after {
-        width: 42px;
-        height: 42px;
-        top: 36px;
-        opacity: .7;
-      }
-
-      h1 {
-        max-width: 84%;
-        font-size: 32px;
-      }
-
-      .grid-2 { grid-template-columns: 1fr; }
-
-      .section-title {
-        margin-top: 31px;
-        gap: 9px;
-      }
-
-      .radio-group {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media print {
-      @page { margin: 13mm; }
-
-      body {
-        padding: 0;
-        background: #fff;
-      }
-
-      .container {
-        width: 100%;
-        max-width: none;
-        padding: 0;
-        border: 0;
-        box-shadow: none;
-      }
-
-      .container::before { display: none; }
-
-      .header {
-        padding-top: 0;
-      }
-
-      .header::after,
-      .intro,
-      .actions,
-      .privacy-note,
-      .error-box {
-        display: none !important;
-      }
-
-      .section-title { break-after: avoid; }
-
-      .form-group,
-      .declaration { break-inside: avoid; }
-
-      .radio-item {
-        min-height: auto;
-        padding: 3px 0;
-        border: 0;
-        justify-content: flex-start;
-        background: transparent !important;
-        color: var(--ink) !important;
-        box-shadow: none !important;
-      }
-
-      .dynamic {
-        padding: 10px;
-        background: transparent;
-      }
-    }
-
-    :root {--navy:#165448;--navy-deep:#123f38;--navy-soft:#edf5ef;--gold:#ae8753;--ink:#233e37;--muted:#536860;--soft:#64756d;--paper:#fffefa;--canvas:#f0f3ee;--line:#dfe6dd}
-    body {background:radial-gradient(ellipse at 0 0,#dce9df,transparent 55%),#f0f3ee;padding:28px 20px 60px}
-    .container{width:min(100%,920px);padding:0 56px 42px;border-color:#dce4db;box-shadow:0 22px 90px -55px #143d32}
-    .container::before{margin:0 -56px;height:6px;background:linear-gradient(90deg,#123f38,#3e7561,#be9e69)}
-    .header{padding-top:36px;margin-bottom:22px}.header::after{display:none}
-    h1{font-size:clamp(36px,6vw,57px);line-height:1.06;max-width:640px;letter-spacing:-.04em}
-    .eyebrow{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:24px;font-size:12px;color:var(--muted)}
-    .brand{font-weight:800;color:var(--navy-deep);letter-spacing:.04em}.badge{margin:0;background:#edf4ec;border-color:#d2dfcf;color:#365e48;font-size:10px}
-    .route{display:flex;align-items:center;gap:18px;margin:26px 0 0;padding:18px 22px;background:var(--navy-deep);border-radius:16px;color:#fff}
-    .route small{display:block;opacity:.75;font-size:11px;letter-spacing:.08em;text-transform:uppercase}.route strong{display:block;font-size:17px}.route .air{font-size:26px;opacity:.6}
-    .intro{background:#f4f6ef;font-size:14px;margin-bottom:22px}.intro p{margin:0 0 8px}.intro p:last-child{margin:0}
-    .journey{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}.journey div{font-size:12px;color:var(--muted)}.journey b{display:block;font-size:14px;color:var(--navy-deep);margin-bottom:4px}
-    .progress-card{position:sticky;top:0;z-index:3;background:#fffefaf5;backdrop-filter:blur(12px);padding:14px 0;border-bottom:1px solid var(--line)}
-    .progress-top{display:flex;justify-content:space-between;gap:12px;font-size:12px;margin-bottom:7px}.progress-top a{color:var(--navy)}progress{display:block;width:100%;height:5px;accent-color:var(--navy);border:0}progress::-webkit-progress-bar{background:#e8eee5;border-radius:10px}progress::-webkit-progress-value{background:#28644f;border-radius:10px}
-    .section-title{font-size:12px;letter-spacing:.08em;scroll-margin-top:95px}.question{line-height:1.5}
-    .radio-group{grid-template-columns:repeat(3,1fr)}.radio-item{min-height:48px;padding:9px 7px}
-    input,textarea,select{font-size:16px!important}select{width:100%;min-height:48px;padding:12px;border:1px solid #ddd6cb;border-radius:10px;background:#fff;color:var(--ink)}
-    :focus-visible{outline:3px solid #ae8753;outline-offset:4px}.hint{color:#64756d}
-    .notice{padding:15px 18px;border-radius:12px;background:#fff4e5;border:1px solid #ecd1a4;font-size:13px;color:#6f491f;margin:16px 0}.notice strong{display:block}.notice a{color:inherit}
-    .btn{background:var(--navy-deep);box-shadow:none}.secondary{background:#eef3eb;color:var(--navy-deep);border:1px solid #d3ded0;box-shadow:none}.button-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .text-button{background:transparent;border:0;text-decoration:underline;color:var(--muted);font:inherit;font-size:13px;cursor:pointer;padding:14px 0}
-    .support{margin-top:30px;border-top:1px solid var(--line);padding-top:24px}.support summary{font-size:15px;font-weight:750;cursor:pointer;color:var(--navy)}.support p,.support li{font-size:13px;color:var(--muted)}.support a{color:var(--navy)}.support li{margin-bottom:9px}
-    .footer{margin-top:30px;font-size:11px;color:var(--muted);text-align:center}.status{font-size:13px;color:var(--navy);min-height:22px}.print-report{display:none}
-    [hidden]{display:none!important} .invalid{outline:1px solid #ad4c43}
-    @media(max-width:620px){body{padding:8px 8px 28px}.container{padding:0 20px 28px}.container::before{margin:0 -20px}.header{padding-top:24px}h1{max-width:100%;font-size:39px}.eyebrow{align-items:flex-start}.brand{max-width:125px}.badge{font-size:9px}.route{padding:16px;gap:12px}.route strong{font-size:14px}.journey{gap:10px}.journey b{font-size:12px}.journey div{font-size:11px}.button-grid{grid-template-columns:1fr}.radio-item{font-size:13px}.section-title{letter-spacing:.03em}.progress-top{font-size:11px}}
-    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
-    @media print{body{background:white;color:#111}.container{display:none!important}.print-report{display:block;font:11pt/1.45 Arial,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere}.print-report h1{font:22pt Georgia,serif}.print-report h2{font:14pt Arial,sans-serif;margin:20px 0 8px;break-after:avoid}.print-row{margin:0 0 10px;white-space:pre-wrap;overflow-wrap:anywhere}.print-row strong{display:block}.print-intro{padding-bottom:14px;border-bottom:1px solid #bbb}.print-footer{margin-top:20px;border-top:1px solid #bbb;padding-top:12px;font-size:9pt}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Saúde pré-viagem · Tupperware · Foz do Iguaçu</title>
+<meta name="description" content="Informações de saúde para a avaliação médica das participantes da viagem Tupperware a Foz do Iguaçu.">
+<meta name="theme-color" content="#00524f">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/styles.css?v=4">
+<script src="assets/vendor/jspdf.umd.min.js" defer></script>
+<script src="assets/app.js?v=4" defer></script>
 </head>
-
 <body>
-  <main class="container">
-    <header class="header">
-      <div class="eyebrow"><span class="brand">TUPPERWARE · FOZ DO IGUAÇU</span><span class="badge">Avaliação pré-viagem</span></div>
-      <h1>Informações de saúde<br>para a viagem.</h1>
-      <p class="subtitle">Preencha este formulário para avaliação médica antes da viagem da Tupperware.</p>
-      <div class="route" aria-label="Viagem da Tupperware do Espírito Santo para Foz do Iguaçu"><div><small>Origem</small><strong>Espírito Santo</strong></div><span class="air" aria-hidden="true">→</span><div><small>Destino</small><strong>Foz do Iguaçu / PR</strong></div></div>
-    </header>
-    <div class="journey"><div><b>01 · Preencha</b>Responda com seus dados e informações de saúde.</div><div><b>02 · Gere o PDF</b>Ao final, salve o resumo em PDF no seu celular.</div><div><b>03 · Envie à médica</b>Mande o PDF para a Dra. Joyce pelo WhatsApp.</div></div>
-    <div class="intro"><p>Responda de acordo com seu estado de saúde atual. Se usar medicamentos, tenha os nomes em mãos.</p><p>Ao final, gere o PDF e envie diretamente para a Dra. Joyce pelo WhatsApp. O formulário serve para organizar as informações da avaliação médica e <strong>não substitui o atestado</strong>.</p></div>
-    <div class="progress-card"><div class="progress-top"><span id="progressText">Preencha os campos obrigatórios</span><a href="#entrega">Como enviar</a></div><progress id="progress" max="100" value="0" aria-label="Preenchimento do formulário"></progress></div>
-    <noscript><div class="notice">Ative o JavaScript para preencher, validar e gerar o resumo. Nenhuma resposta é enviada automaticamente.</div></noscript>
-    <div id="errorBox" class="error-box" role="alert">
-      Revise os campos destacados antes de salvar o formulário.
-    </div>
-
-    <form id="travelForm" novalidate autocomplete="off">
-      <div class="section-title">1. Dados pessoais</div>
+<a class="skip-link" href="#formStart">Ir para o formulário</a>
+<header class="masthead"><div class="masthead-inner"><div class="wordmark">Tupperware<span>®</span></div><div class="masthead-label">LÍDERES &amp; CONSULTORAS</div></div></header>
+<main class="layout">
+<aside class="travel-card" aria-label="Viagem a Foz do Iguaçu">
+<img class="destination-photo" src="assets/iguacu.jpg" width="1280" height="677" alt="Vista panorâmica das Cataratas do Iguaçu" fetchpriority="high">
+<div class="travel-top"><span>VIAGEM TUPPERWARE</span><span>PARANÁ · BRASIL</span></div>
+<div class="travel-caption"><span class="travel-eyebrow">SEU PRÓXIMO DESTINO</span><h1>Foz do<br>Iguaçu<span>.</span></h1><p>Uma viagem para celebrar<br>as suas conquistas.</p><div class="travel-rule"></div><span class="travel-small">INFORMAÇÕES DE SAÚDE PRÉ-VIAGEM</span></div>
+<a class="photo-credit" href="https://commons.wikimedia.org/wiki/File:Iguazu_Falls_Panorama_2009.jpg" target="_blank" rel="noopener noreferrer">Foto: Mariordo · CC BY-SA 4.0</a>
+</aside>
+<div class="form-shell" id="formStart">
+<div class="welcome"><div class="welcome-heading"><span class="kicker">ANTES DE EMBARCAR</span><span class="private-label"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Preenchimento individual</span></div><p>Estas informações vão ajudar na sua avaliação com a <strong>Dra. Joyce</strong>. Ao terminar, envie o PDF para ela pelo WhatsApp.</p></div>
+<nav class="step-nav" aria-label="Etapas do formulário"><ol><li><button type="button" data-step="0" aria-current="step"><span class="step-number">01</span><span>Seus dados</span></button></li><li><button type="button" data-step="1"><span class="step-number">02</span><span>Sua saúde</span></button></li><li><button type="button" data-step="2"><span class="step-number">03</span><span>Hoje</span></button></li><li><button type="button" data-step="3"><span class="step-number">04</span><span>Revisão</span></button></li></ol><div class="progress-track"><span id="stepProgress"></span></div></nav>
+<noscript><div class="notice">Ative o JavaScript no navegador para preencher o formulário e baixar o PDF.</div></noscript>
+<div id="errorBox" class="error-box" role="alert" hidden></div>
+<form id="travelForm" novalidate autocomplete="off"><section class="form-panel" data-panel="0" aria-labelledby="title-0"><div class="panel-heading"><span class="kicker">ETAPA 1 DE 4</span><h2 id="title-0" tabindex="-1">Seus dados.</h2><p>Use seu nome completo, como no documento.</p></div><h3 class="section-title" hidden>Seus dados</h3>
 
       <div class="form-group">
         <label class="question" for="nome">Nome completo</label>
@@ -538,24 +50,24 @@
       </div>
 
       <div class="form-group">
-        <label class="question" for="telefone">Telefone / WhatsApp</label>
-        <input id="telefone" name="telefone" type="tel" autocomplete="tel" required placeholder="(27) 99999-9999">
+        <label class="question" for="telefone">Seu WhatsApp</label>
+        <input id="telefone" name="telefone" type="tel" maxlength="20" autocomplete="tel" required placeholder="(27) 99999-9999">
       </div>
 
 
-      <div class="section-title">2. Sobre a viagem</div>
+      <h3 class="subsection">Sobre a viagem</h3>
       <div class="grid-2">
         <div class="form-group">
           <label class="question" for="partida">Data de ida</label>
           <input id="partida" name="partida" type="date" required>
         </div>
         <div class="form-group">
-          <label class="question" for="retorno">Data de volta <span class="hint">Se já estiver definida.</span></label>
+          <label class="question" for="retorno">Data de volta <span class="optional">Opcional</span></label>
           <input id="retorno" name="retorno" type="date">
         </div>
       </div>
 
-      <div class="section-title">3. Histórico de saúde</div>
+      </section><section class="form-panel" data-panel="1" aria-labelledby="title-1" hidden><div class="panel-heading"><span class="kicker">ETAPA 2 DE 4</span><h2 id="title-1" tabindex="-1">Sobre a sua saúde.</h2><p>Se usar medicamentos, tenha os nomes em mãos.</p></div><h3 class="section-title" hidden>Histórico de saúde</h3>
 
       <div class="form-group">
         <label class="question">Possui alguma doença ou condição de saúde em acompanhamento?</label>
@@ -601,7 +113,7 @@
         </div>
       </div>
 
-      <div class="section-title">4. Como você está hoje</div>
+
 
       <div class="form-group">
         <label class="question">
@@ -615,7 +127,7 @@
           <input type="text" maxlength="1000" data-detail-for="antecedente" placeholder="Informe qual condição e quando ocorreu.">
         </div>
       </div>
-
+</section><section class="form-panel" data-panel="2" aria-labelledby="title-2" hidden><div class="panel-heading"><span class="kicker">ETAPA 3 DE 4</span><h2 id="title-2" tabindex="-1">Como você está hoje?</h2><p>Responda de acordo com seu estado de saúde atual.</p></div><h3 class="section-title" hidden>Saúde atual</h3>
       <div class="form-group">
         <label class="question">
           Atualmente ou nos últimos dias apresentou dor no peito, falta de ar fora do habitual, palpitações importantes ou desmaio?
@@ -682,128 +194,22 @@
         <textarea id="outras" name="outras" maxlength="3000" placeholder="Informação adicional, se houver."></textarea>
       </div>
 
-      <div class="section-title">5. Revise e conclua</div>
-
-      <div class="declaration">
-        Declaro que as informações fornecidas neste formulário são verdadeiras e completas segundo meu conhecimento.
-        Estou ciente da importância de comunicar à médica qualquer condição, sintoma ou alteração relevante do meu estado de saúde
-        para a avaliação relacionada à viagem a Foz do Iguaçu/PR.
-      </div>
-
-      <label class="check-row">
-        <input type="checkbox" id="aceite" required>
-        <span>Confirmo que li a declaração acima e que as informações prestadas correspondem ao meu estado de saúde.</span>
-      </label>
-
-      <div class="form-group" style="margin-top: 22px;">
-        <label class="question" for="data_hoje">Data de preenchimento</label>
-        <input type="date" id="data_hoje" name="data_hoje" required>
-      </div>
-
-      <div class="actions" id="entrega">
-        <button class="btn" type="button" id="printBtn">Gerar PDF para enviar à Dra. Joyce</button>
-        <p class="privacy-note">Na tela seguinte, escolha “Salvar como PDF”. Depois, envie o arquivo para a Dra. Joyce pelo WhatsApp.</p>
-        <p id="status" class="status" role="status" aria-live="polite"></p>
-        <button class="text-button" type="button" id="resetBtn">Apagar respostas / próxima viajante</button>
-      </div>
-    </form>
-    <details class="support"><summary>Como finalizar</summary><ol><li>Preencha e revise as respostas.</li><li>Toque em “Gerar PDF para enviar à Dra. Joyce”.</li><li>Salve o arquivo em PDF no seu celular.</li><li>Envie o PDF para a Dra. Joyce pelo WhatsApp.</li></ol></details>
-    <details class="support"><summary>Privacidade</summary><p>As respostas não são enviadas automaticamente e não ficam armazenadas neste site. Elas permanecem apenas nesta página enquanto o formulário estiver aberto.</p><p>O PDF contém informações de saúde. Envie somente para a Dra. Joyce, em conversa individual.</p><p>O formulário organiza informações fornecidas por você para avaliação médica e não substitui consulta ou atestado.</p></details>
-    <footer class="footer">Viagem Tupperware · Espírito Santo → Foz do Iguaçu<br>Avaliação médica individual</footer>
-  </main>
-  <section id="printReport" class="print-report" aria-label="Resumo de saúde para avaliação médica"></section>
-
-  <script>'use strict';
-const form = document.getElementById('travelForm');
-const $ = id => document.getElementById(id);
-const groups = [...form.querySelectorAll('[data-required-radio]')];
-let dirty = false;
-function today() {const d = new Date(); return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10);}
-function validCpf(value) {
-  const n=value.replace(/\D/g,'');
-  if(!/^\d{11}$/.test(n)||/^(\d)\1{10}$/.test(n)) return false;
-  for(let len=9;len<=10;len++){let sum=0;for(let i=0;i<len;i++)sum+=Number(n[i])*(len+1-i);let digit=(sum*10)%11;if(digit===10)digit=0;if(digit!==Number(n[len]))return false;}
-  return true;
-}
-function selected(name){return form.querySelector('input[name="'+name+'"]:checked');}
-function updateConditional(name){
-  const box=$(name+'_detail');if(!box)return;
-  const show=selected(name)?.value==='sim';
-  box.classList.toggle('visible',show);
-  const detail=box.querySelector('[data-detail-for]');
-  detail.disabled=!show;detail.required=show;
-  if(!show){detail.value='';detail.classList.remove('invalid');detail.removeAttribute('aria-invalid');}
-  $('urgentNotice').hidden=selected('sintomas')?.value!=='sim';
-}
-groups.forEach((group,index)=>{
-  const name=group.dataset.requiredRadio;
-  const question=group.closest('.form-group').querySelector('.question');
-  question.id='question-'+name;group.setAttribute('role','group');group.setAttribute('aria-labelledby',question.id);
-  const label=document.createElement('label');label.className='radio-item';
-  const radio=document.createElement('input');radio.type='radio';radio.name=name;radio.value='nao_sei';label.append(radio,document.createTextNode('Não sei'));group.append(label);
-  const detail=form.querySelector('[data-detail-for="'+name+'"]');
-  if(detail){detail.name=name+'_detalhe';detail.setAttribute('aria-label','Detalhes: '+question.textContent.trim());}
-  group.addEventListener('change',()=>updateConditional(name));updateConditional(name);
-});
-function progress(){
-  const required=[...form.querySelectorAll('[required]:not([type="radio"])')].filter(el=>!el.disabled);
-  const complete=required.filter(el=>el.type==='checkbox'?el.checked:el.value.trim()).length+groups.filter(g=>selected(g.dataset.requiredRadio)).length;
-  const total=required.length+groups.length;
-  $('progress').value=Math.round(100*complete/total);
-  $('progressText').textContent=complete+' de '+total+' campos obrigatórios preenchidos';
-}
-function validate(){
-  form.querySelectorAll('.invalid').forEach(el=>el.classList.remove('invalid'));
-  form.querySelectorAll('[aria-invalid]').forEach(el=>el.removeAttribute('aria-invalid'));
-  const errors=[];
-  function bad(el,message){el.classList.add('invalid');el.setAttribute('aria-invalid','true');errors.push({el,message});}
-  [...form.querySelectorAll('[required]')].filter(el=>!el.disabled).forEach(el=>{if(el.type==='checkbox'?!el.checked:!el.value.trim())bad(el,'Preencha todos os campos obrigatórios e confirme a declaração.');});
-  groups.forEach(g=>{if(!selected(g.dataset.requiredRadio))bad(g.querySelector('input'),'Responda às perguntas de saúde. Você pode selecionar “Não sei”.');});
-  if($('cpf').value&&!validCpf($('cpf').value))bad($('cpf'),'Confira os 11 dígitos do CPF.');
-  const phone=$('telefone').value.replace(/\D/g,'');
-  if(phone&&!/^(?:55)?\d{10,11}$/.test(phone))bad($('telefone'),'Informe telefone com DDD (10 ou 11 dígitos, ou +55).');
-  if($('nome').value.trim()&&!/^\S+\s+\S+/.test($('nome').value.trim()))bad($('nome'),'Informe seu nome completo.');
-  if($('nascimento').value&&($('nascimento').value>today()||$('nascimento').value<'1900-01-01'))bad($('nascimento'),'Confira a data de nascimento.');
-  if($('partida').value&&$('partida').value<today())bad($('partida'),'A data de ida não pode ser anterior a hoje.');
-  if($('retorno').value&&$('retorno').value<$('partida').value)bad($('retorno'),'A volta não pode ser anterior à ida.');
-  if($('data_hoje').value&&$('data_hoje').value!==today())bad($('data_hoje'),'Use a data de hoje para registrar seu estado atual de saúde.');
-  $('errorBox').classList.toggle('visible',errors.length>0);
-  if(errors.length){$('errorBox').textContent=[...new Set(errors.map(e=>e.message))].join(' ');errors[0].el.focus();errors[0].el.scrollIntoView({block:'center',behavior:'smooth'});return false;}
-  return true;
-}
-function pretty(el){if(el.type==='date'&&el.value)return el.value.split('-').reverse().join('/');return el.value.trim()||'Não informado';}
-function reportRows(){
-  const rows=[];
-  form.querySelectorAll('.section-title,.form-group').forEach(el=>{
-    if(el.classList.contains('section-title')){rows.push({section:el.textContent.trim()});return;}
-    const q=el.querySelector('.question');if(!q)return;
-    const title=q.cloneNode(true);title.querySelectorAll('.hint').forEach(h=>h.remove());
-    const group=el.querySelector('[data-required-radio]');let answer;
-    if(group){const name=group.dataset.requiredRadio;const val=selected(name)?.value;answer={sim:'Sim',nao:'Não',nao_sei:'Não sei'}[val]||'Não respondido';if(val==='sim')answer+=' — '+el.querySelector('[data-detail-for]').value.trim();}
-    else {const field=el.querySelector('input,textarea,select');if(!field)return;answer=pretty(field);}
-    rows.push({label:title.textContent.trim(),value:answer});
-  });
-  rows.push({label:'Declaração da viajante',value:$('aceite').checked?'Confirmou que as informações são verdadeiras e completas segundo seu conhecimento.':'Não confirmada.'});
-  return rows;
-}
-function buildReport(){
-  const root=$('printReport');root.replaceChildren();
-  const heading=document.createElement('h1');heading.textContent='Resumo de saúde pré-viagem';root.append(heading);
-  const intro=document.createElement('p');intro.className='print-intro';intro.textContent='Viagem Tupperware · Espírito Santo → Foz do Iguaçu / PR\nInformações fornecidas pela viajante para avaliação médica individual. Este resumo não é um atestado.';root.append(intro);
-  reportRows().forEach(row=>{if(row.section){const h=document.createElement('h2');h.textContent=row.section;root.append(h);}else{const p=document.createElement('p');p.className='print-row';const strong=document.createElement('strong');strong.textContent=row.label;p.append(strong,document.createTextNode(row.value));root.append(p);}});
-  const footer=document.createElement('p');footer.className='print-footer';footer.textContent='Documento confidencial destinado à médica. A declaração não substitui consulta, avaliação clínica ou assinatura médica. A aptidão e a eventual emissão de atestado dependem da avaliação individual.';root.append(footer);
-  return 'RESUMO DE SAÚDE PRÉ-VIAGEM\nViagem Tupperware · Espírito Santo → Foz do Iguaçu\nInformações fornecidas pela viajante para avaliação médica individual.\n\n'+reportRows().map(row=>row.section||row.label+'\n'+row.value).join('\n\n');
-}
-$('printBtn').addEventListener('click',()=>{if(!validate())return;buildReport();window.print();$('status').textContent='Depois de salvar o PDF, envie o arquivo para a Dra. Joyce pelo WhatsApp.';});
-window.addEventListener('beforeprint',buildReport);
-function reset(){form.reset();$('printReport').replaceChildren();groups.forEach(g=>updateConditional(g.dataset.requiredRadio));form.querySelectorAll('.invalid').forEach(el=>el.classList.remove('invalid'));form.querySelectorAll('[aria-invalid]').forEach(el=>el.removeAttribute('aria-invalid'));$('errorBox').classList.remove('visible');$('data_hoje').value=today();$('nascimento').max=today();$('partida').min=today();$('status').textContent='';dirty=false;progress();}
-$('resetBtn').addEventListener('click',()=>{if(!confirm('Apagar todas as respostas desta página e começar um formulário em branco? PDFs e mensagens já enviados não serão apagados.'))return;reset();$('nome').focus();$('status').textContent='Respostas apagadas. Formulário pronto para a próxima viajante.';});
-$('cpf').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');});
-form.addEventListener('submit',e=>{e.preventDefault();validate();});
-['input','change'].forEach(type=>form.addEventListener(type,e=>{dirty=true;e.target.classList.remove('invalid');e.target.removeAttribute('aria-invalid');$('printReport').replaceChildren();progress();}));
-window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
-window.addEventListener('pageshow',e=>{if(e.persisted)reset();});
-reset();
-</script>
-</body>
-</html>
+      </section><section class="form-panel" data-panel="3" aria-labelledby="title-3" hidden><div class="panel-heading"><span class="kicker">ETAPA 4 DE 4</span><h2 id="title-3" tabindex="-1">Confira antes de enviar.</h2><p>Revise as informações que vão aparecer no PDF.</p></div><h3 class="section-title" hidden>Revisão e envio</h3><div id="reviewSummary" class="review-summary"></div>
+<div class="declaration">Declaro que as informações fornecidas são verdadeiras e completas segundo meu conhecimento. Comunicarei à médica qualquer mudança no meu estado de saúde antes da viagem.</div>
+<label class="check-row"><input type="checkbox" id="aceite" required><span>Revisei as respostas e confirmo as informações acima.</span></label>
+<div class="form-group date-confirm"><label class="question" for="data_hoje">Data de preenchimento</label><input type="date" id="data_hoje" name="data_hoje" required></div>
+<div class="delivery" id="entrega"><span class="kicker">PRÓXIMO PASSO</span><h3>Envie seu PDF à Dra. Joyce.</h3><p>Baixe o arquivo e envie na conversa individual pelo WhatsApp. A avaliação médica e o atestado serão feitos depois.</p>
+<button class="btn" type="button" id="downloadBtn"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5"/></svg>Baixar PDF</button>
+<button class="btn secondary" type="button" id="shareBtn" hidden><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16V3m-4 4 4-4 4 4M7 10H4v11h16V10h-3"/></svg>Compartilhar PDF</button>
+<p id="status" class="status" role="status" aria-live="polite"></p>
+<p class="delivery-hint" id="shareHint" hidden>No menu de compartilhamento, escolha o WhatsApp e a conversa com a Dra. Joyce.</p>
+<button class="text-button" type="button" id="printBtn">Imprimir ou salvar pelo navegador</button></div></section>
+<div class="form-navigation"><button class="back-button" id="backBtn" type="button" hidden>Voltar</button><span class="step-count" id="stepCount">Etapa 1 de 4</span><button class="btn next-button" id="nextBtn" type="button">Continuar</button></div>
+</form>
+<div class="physician"><div class="physician-monogram" aria-hidden="true">JR</div><div><strong>Dra. Joyce Radis de Souza de Oliveira</strong><span>Médica · CRM-ES 21188</span></div></div>
+<div class="help-links"><details><summary>Como enviar o PDF</summary><p>Ao concluir, toque em <strong>Baixar PDF</strong>. Abra sua conversa com a Dra. Joyce no WhatsApp e anexe o arquivo como documento.</p><p>Se aparecer <strong>Compartilhar PDF</strong>, você também pode usar esse botão e escolher o WhatsApp.</p><p>No iPhone, o PDF pode abrir em uma nova tela. Use o botão de compartilhar e escolha o WhatsApp ou “Salvar em Arquivos”.</p></details><details><summary>Suas informações</summary><p>As respostas ficam apenas nesta página enquanto ela está aberta. O envio acontece quando você compartilha o PDF. Envie somente à Dra. Joyce, em conversa individual.</p><p>Este formulário reúne suas informações de saúde. O atestado é emitido separadamente, após a avaliação médica.</p></details></div>
+<button class="text-button reset-button" type="button" id="resetBtn">Limpar minhas respostas</button>
+</div></main>
+<footer class="site-footer">Atendimento médico independente para participantes da viagem Tupperware.</footer>
+<section id="printReport" class="print-report" aria-label="Resumo de saúde para avaliação médica"></section>
+</body></html>
