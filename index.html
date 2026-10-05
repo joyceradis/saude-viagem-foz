@@ -10,9 +10,9 @@
 <meta name="robots" content="noindex, nofollow">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/styles.css?v=4">
+<link rel="stylesheet" href="assets/styles.css?v=5">
 <script src="assets/vendor/jspdf.umd.min.js" defer></script>
-<script src="assets/app.js?v=4" defer></script>
+<script src="assets/app.js?v=5" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#formStart">Ir para o formulário</a>
@@ -33,25 +33,25 @@
 
       <div class="form-group">
         <label class="question" for="nome">Nome completo</label>
-        <input id="nome" name="nome" maxlength="160" type="text" autocomplete="name" required placeholder="Seu nome completo">
+        <input id="nome" name="nome" maxlength="160" type="text" autocomplete="name" placeholder="Seu nome completo">
       </div>
 
       <div class="grid-2">
         <div class="form-group">
           <label class="question" for="nascimento">Data de nascimento</label>
-          <input id="nascimento" name="nascimento" type="date" required>
+          <input id="nascimento" name="nascimento" type="date">
         </div>
 
         <div class="form-group">
           <label class="question" for="cpf">CPF</label>
           <input id="cpf" name="cpf" type="text" inputmode="numeric" autocomplete="off"
-                 maxlength="14" required placeholder="000.000.000-00">
+                 maxlength="14" placeholder="000.000.000-00">
         </div>
       </div>
 
       <div class="form-group">
         <label class="question" for="telefone">Seu WhatsApp</label>
-        <input id="telefone" name="telefone" type="tel" maxlength="20" autocomplete="tel" required placeholder="(27) 99999-9999">
+        <input id="telefone" name="telefone" type="tel" maxlength="20" autocomplete="tel" placeholder="(27) 99999-9999">
       </div>
 
 
@@ -59,7 +59,7 @@
       <div class="grid-2">
         <div class="form-group">
           <label class="question" for="partida">Data de ida</label>
-          <input id="partida" name="partida" type="date" required>
+          <input id="partida" name="partida" type="date">
         </div>
         <div class="form-group">
           <label class="question" for="retorno">Data de volta <span class="optional">Opcional</span></label>
@@ -196,8 +196,8 @@
 
       </section><section class="form-panel" data-panel="3" aria-labelledby="title-3" hidden><div class="panel-heading"><span class="kicker">ETAPA 4 DE 4</span><h2 id="title-3" tabindex="-1">Confira antes de enviar.</h2><p>Revise as informações que vão aparecer no PDF.</p></div><h3 class="section-title" hidden>Revisão e envio</h3><div id="reviewSummary" class="review-summary"></div>
 <div class="declaration">Declaro que as informações fornecidas são verdadeiras e completas segundo meu conhecimento. Comunicarei à médica qualquer mudança no meu estado de saúde antes da viagem.</div>
-<label class="check-row"><input type="checkbox" id="aceite" required><span>Revisei as respostas e confirmo as informações acima.</span></label>
-<div class="form-group date-confirm"><label class="question" for="data_hoje">Data de preenchimento</label><input type="date" id="data_hoje" name="data_hoje" required></div>
+<label class="check-row"><input type="checkbox" id="aceite"><span>Revisei as respostas e confirmo as informações acima.</span></label>
+<div class="form-group date-confirm"><label class="question" for="data_hoje">Data de preenchimento</label><input type="date" id="data_hoje" name="data_hoje"></div>
 <div class="delivery" id="entrega"><span class="kicker">PRÓXIMO PASSO</span><h3>Envie seu PDF à Dra. Joyce.</h3><p>Baixe o arquivo e envie na conversa individual pelo WhatsApp. A avaliação médica e o atestado serão feitos depois.</p>
 <button class="btn" type="button" id="downloadBtn"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5"/></svg>Baixar PDF</button>
 <button class="btn secondary" type="button" id="shareBtn" hidden><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16V3m-4 4 4-4 4 4M7 10H4v11h16V10h-3"/></svg>Compartilhar PDF</button>
@@ -206,7 +206,7 @@
 <button class="text-button" type="button" id="printBtn">Imprimir ou salvar pelo navegador</button></div></section>
 <div class="form-navigation"><button class="back-button" id="backBtn" type="button" hidden>Voltar</button><span class="step-count" id="stepCount">Etapa 1 de 4</span><button class="btn next-button" id="nextBtn" type="button">Continuar</button></div>
 </form>
-<div class="physician"><div class="physician-monogram" aria-hidden="true">JR</div><div><strong>Dra. Joyce Radis de Souza de Oliveira</strong><span>Médica · CRM-ES 21188</span></div></div>
+<footer class="physician"><div class="physician-monogram" aria-hidden="true">JR</div><div><strong>Dra. Joyce Radis de Souza de Oliveira</strong><span>CRM ES 21188</span><span>Medicina Integrativa · Perita Judicial</span><a href="mailto:contato@drajoyceradis.com">contato@drajoyceradis.com</a></div></footer>
 <div class="help-links"><details><summary>Como enviar o PDF</summary><p>Ao concluir, toque em <strong>Baixar PDF</strong>. Abra sua conversa com a Dra. Joyce no WhatsApp e anexe o arquivo como documento.</p><p>Se aparecer <strong>Compartilhar PDF</strong>, você também pode usar esse botão e escolher o WhatsApp.</p><p>No iPhone, o PDF pode abrir em uma nova tela. Use o botão de compartilhar e escolha o WhatsApp ou “Salvar em Arquivos”.</p></details><details><summary>Suas informações</summary><p>As respostas ficam apenas nesta página enquanto ela está aberta. O envio acontece quando você compartilha o PDF. Envie somente à Dra. Joyce, em conversa individual.</p><p>Este formulário reúne suas informações de saúde. O atestado é emitido separadamente, após a avaliação médica.</p></details></div>
 <button class="text-button reset-button" type="button" id="resetBtn">Limpar minhas respostas</button>
 </div></main>

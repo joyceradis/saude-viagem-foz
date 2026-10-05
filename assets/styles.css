@@ -204,3 +204,5 @@ textarea { resize: vertical; min-height: 104px; }
   .print-intro, .print-footer { font-size: 9pt; }
   .print-footer { margin-top: 20pt; border-top: 1px solid #bbb; padding-top: 10pt; }
 }
+
+.physician a { display: inline-block; margin-top: 5px; font-size: 12px; overflow-wrap: anywhere; }

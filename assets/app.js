@@ -14,18 +14,6 @@ function today() {
   return new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
 }
 function selected(name) { return form.querySelector('input[name="' + name + '"]:checked'); }
-function validCpf(value) {
-  const n = value.replace(/\D/g, '');
-  if (!/^\d{11}$/.test(n) || /^(\d)\1{10}$/.test(n)) return false;
-  for (let len = 9; len <= 10; len++) {
-    let sum = 0;
-    for (let i = 0; i < len; i++) sum += Number(n[i]) * (len + 1 - i);
-    let digit = (sum * 10) % 11;
-    if (digit === 10) digit = 0;
-    if (digit !== Number(n[len])) return false;
-  }
-  return true;
-}
 function updateConditional(name) {
   const box = $(name + '_detail');
   if (!box) return;
@@ -33,7 +21,6 @@ function updateConditional(name) {
   box.classList.toggle('visible', show);
   const detail = box.querySelector('[data-detail-for]');
   detail.disabled = !show;
-  detail.required = show;
   if (!show) {
     detail.value = '';
     detail.classList.remove('invalid');
@@ -47,7 +34,6 @@ groups.forEach(group => {
   question.id = 'question-' + name;
   group.setAttribute('role', 'radiogroup');
   group.setAttribute('aria-labelledby', question.id);
-  group.setAttribute('aria-required', 'true');
   const label = document.createElement('label');
   label.className = 'radio-item';
   const radio = document.createElement('input');
@@ -94,51 +80,7 @@ function clearErrors() {
   form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
   $('errorBox').hidden = true;
 }
-function validate(scope = form) {
-  clearErrors();
-  const errors = [];
-  const includes = id => scope.contains($(id));
-  function bad(el, message) {
-    if (errors.some(error => error.el === el)) return;
-    el.classList.add('invalid');
-    el.setAttribute('aria-invalid', 'true');
-    errors.push({ el, message });
-  }
-  [...scope.querySelectorAll('[required]')].filter(el => !el.disabled).forEach(el => {
-    if (el.type === 'checkbox' ? !el.checked : !el.value.trim()) {
-      const label = el.id ? form.querySelector('label[for="' + el.id + '"]') : null;
-      bad(el, el.type === 'checkbox' ? 'Confirme a declaração para gerar o PDF.' : label ? 'Preencha: ' + label.textContent.trim() + '.' : 'Complete os detalhes da resposta “Sim”.');
-    }
-  });
-  groups.filter(g => scope.contains(g)).forEach(g => {
-    if (!selected(g.dataset.requiredRadio)) bad(g.querySelector('input'), 'Responda às perguntas de saúde. Se não souber, marque “Não sei”.');
-  });
-  if (includes('cpf') && $('cpf').value && !validCpf($('cpf').value)) bad($('cpf'), 'Confira os 11 dígitos do CPF.');
-  const phone = $('telefone').value.replace(/\D/g, '');
-  if (includes('telefone') && phone && !/^(?:55)?\d{10,11}$/.test(phone)) bad($('telefone'), 'Informe seu WhatsApp com DDD.');
-  if (includes('telefone') && $('telefone').value && !phone) bad($('telefone'), 'Informe seu WhatsApp com DDD.');
-  if (includes('nome') && $('nome').value.trim() && !/^\S+\s+\S+/.test($('nome').value.trim())) bad($('nome'), 'Informe seu nome completo.');
-  if (includes('nascimento') && $('nascimento').value && ($('nascimento').value > today() || $('nascimento').value < '1900-01-01')) bad($('nascimento'), 'Confira a data de nascimento.');
-  if (includes('partida') && $('partida').value && $('partida').value < today()) bad($('partida'), 'Confira a data de ida: ela deve ser hoje ou uma data futura.');
-  if (includes('retorno') && $('retorno').value && $('retorno').value < $('partida').value) bad($('retorno'), 'A data de volta deve ser igual ou posterior à data de ida.');
-  if (includes('data_hoje') && $('data_hoje').value && $('data_hoje').value !== today()) bad($('data_hoje'), 'Use a data de hoje no preenchimento.');
-  if (errors.length) {
-    const error = errors[0];
-    const panel = error.el.closest('[data-panel]');
-    if (panel && Number(panel.dataset.panel) !== currentStep) showStep(Number(panel.dataset.panel), false);
-    $('errorBox').textContent = [...new Set(errors.map(e => e.message))].join(' ');
-    $('errorBox').hidden = false;
-    error.el.focus({ preventScroll: true });
-    // Keep the error and the first field in view on mobile.
-    $('errorBox').scrollIntoView({ block: 'center', behavior: 'instant' });
-    return false;
-  }
-  return true;
-}
 function navigate(step) {
-  if (step > currentStep) {
-    for (let i = currentStep; i < step; i++) if (!validate(panels[i])) return;
-  }
   clearErrors();
   showStep(step);
 }
@@ -289,7 +231,6 @@ function pdfError() {
   $('status').textContent = 'Não foi possível gerar o download. Use “Imprimir ou salvar pelo navegador” abaixo para salvar seu PDF.';
 }
 $('downloadBtn').addEventListener('click', () => {
-  if (!validate()) return;
   try {
     const file = createPdf();
     const url = URL.createObjectURL(file);
@@ -302,7 +243,6 @@ $('downloadBtn').addEventListener('click', () => {
   } catch { pdfError(); }
 });
 $('shareBtn').addEventListener('click', async () => {
-  if (!validate()) return;
   try {
     const file = createPdf();
     await navigator.share({ files: [file], title: 'Informações de saúde pré-viagem' });
@@ -313,7 +253,6 @@ $('shareBtn').addEventListener('click', async () => {
   }
 });
 $('printBtn').addEventListener('click', () => {
-  if (!validate()) return;
   buildPrintReport(); window.print();
 });
 window.addEventListener('beforeprint', buildPrintReport);
@@ -328,7 +267,7 @@ function reset() {
   $('printReport').replaceChildren(); $('reviewSummary').replaceChildren();
   groups.forEach(g => updateConditional(g.dataset.requiredRadio));
   clearErrors();
-  $('data_hoje').value = today(); $('nascimento').max = today(); $('partida').min = today();
+  $('data_hoje').value = today();
   $('status').textContent = ''; dirty = false;
   showStep(0, false);
 }

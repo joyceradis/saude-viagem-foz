@@ -14,7 +14,7 @@ O formulário gera um resumo das informações declaradas pela participante. A a
 
 - `index.html`: conteúdo e quatro etapas do formulário.
 - `assets/styles.css`: interface responsiva e impressão.
-- `assets/app.js`: navegação, validação, revisão e geração local de PDF.
+- `assets/app.js`: navegação sem bloqueios de preenchimento, revisão e geração local de PDF.
 - `assets/vendor/jspdf.umd.min.js`: jsPDF 3.0.3, sob licença MIT, mantido localmente.
 - `assets/iguacu.jpg`: fotografia das Cataratas com os créditos descritos em `assets/CREDITS.md`.
 
