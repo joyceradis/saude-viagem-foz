@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Avaliação de Saúde Pré-Viagem — Foz do Iguaçu</title>
+  <title>Saúde em viagem · Espírito Santo → Foz do Iguaçu</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-58x+PCKiBYO71Mw/6hXHf6qGXPAgxu48hfEUGrDHO5w='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Prepare sua avaliação de saúde para viajar de avião a Foz do Iguaçu. Formulário individual, resumo para a médica e orientações para o atestado.">
+  <meta name="theme-color" content="#123f38">
   <style>
     :root {
       --ink: #18202a;
@@ -464,32 +469,59 @@
         background: transparent;
       }
     }
+
+    :root {--navy:#165448;--navy-deep:#123f38;--navy-soft:#edf5ef;--gold:#ae8753;--ink:#233e37;--muted:#536860;--soft:#64756d;--paper:#fffefa;--canvas:#f0f3ee;--line:#dfe6dd}
+    body {background:radial-gradient(ellipse at 0 0,#dce9df,transparent 55%),#f0f3ee;padding:28px 20px 60px}
+    .container{width:min(100%,920px);padding:0 56px 42px;border-color:#dce4db;box-shadow:0 22px 90px -55px #143d32}
+    .container::before{margin:0 -56px;height:6px;background:linear-gradient(90deg,#123f38,#3e7561,#be9e69)}
+    .header{padding-top:36px;margin-bottom:22px}.header::after{display:none}
+    h1{font-size:clamp(36px,6vw,57px);line-height:1.06;max-width:640px;letter-spacing:-.04em}
+    .eyebrow{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:24px;font-size:12px;color:var(--muted)}
+    .brand{font-weight:800;color:var(--navy-deep);letter-spacing:.04em}.badge{margin:0;background:#edf4ec;border-color:#d2dfcf;color:#365e48;font-size:10px}
+    .route{display:flex;align-items:center;gap:18px;margin:26px 0 0;padding:18px 22px;background:var(--navy-deep);border-radius:16px;color:#fff}
+    .route small{display:block;opacity:.75;font-size:11px;letter-spacing:.08em;text-transform:uppercase}.route strong{display:block;font-size:17px}.route .air{font-size:26px;opacity:.6}
+    .intro{background:#f4f6ef;font-size:14px;margin-bottom:22px}.intro p{margin:0 0 8px}.intro p:last-child{margin:0}
+    .journey{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}.journey div{font-size:12px;color:var(--muted)}.journey b{display:block;font-size:14px;color:var(--navy-deep);margin-bottom:4px}
+    .progress-card{position:sticky;top:0;z-index:3;background:#fffefaf5;backdrop-filter:blur(12px);padding:14px 0;border-bottom:1px solid var(--line)}
+    .progress-top{display:flex;justify-content:space-between;gap:12px;font-size:12px;margin-bottom:7px}.progress-top a{color:var(--navy)}progress{display:block;width:100%;height:5px;accent-color:var(--navy);border:0}progress::-webkit-progress-bar{background:#e8eee5;border-radius:10px}progress::-webkit-progress-value{background:#28644f;border-radius:10px}
+    .section-title{font-size:12px;letter-spacing:.08em;scroll-margin-top:95px}.question{line-height:1.5}
+    .radio-group{grid-template-columns:repeat(3,1fr)}.radio-item{min-height:48px;padding:9px 7px}
+    input,textarea,select{font-size:16px!important}select{width:100%;min-height:48px;padding:12px;border:1px solid #ddd6cb;border-radius:10px;background:#fff;color:var(--ink)}
+    :focus-visible{outline:3px solid #ae8753;outline-offset:4px}.hint{color:#64756d}
+    .notice{padding:15px 18px;border-radius:12px;background:#fff4e5;border:1px solid #ecd1a4;font-size:13px;color:#6f491f;margin:16px 0}.notice strong{display:block}.notice a{color:inherit}
+    .btn{background:var(--navy-deep);box-shadow:none}.secondary{background:#eef3eb;color:var(--navy-deep);border:1px solid #d3ded0;box-shadow:none}.button-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .text-button{background:transparent;border:0;text-decoration:underline;color:var(--muted);font:inherit;font-size:13px;cursor:pointer;padding:14px 0}
+    .support{margin-top:30px;border-top:1px solid var(--line);padding-top:24px}.support summary{font-size:15px;font-weight:750;cursor:pointer;color:var(--navy)}.support p,.support li{font-size:13px;color:var(--muted)}.support a{color:var(--navy)}.support li{margin-bottom:9px}
+    .footer{margin-top:30px;font-size:11px;color:var(--muted);text-align:center}.status{font-size:13px;color:var(--navy);min-height:22px}.print-report{display:none}
+    [hidden]{display:none!important} .invalid{outline:1px solid #ad4c43}
+    @media(max-width:620px){body{padding:8px 8px 28px}.container{padding:0 20px 28px}.container::before{margin:0 -20px}.header{padding-top:24px}h1{max-width:100%;font-size:39px}.eyebrow{align-items:flex-start}.brand{max-width:125px}.badge{font-size:9px}.route{padding:16px;gap:12px}.route strong{font-size:14px}.journey{gap:10px}.journey b{font-size:12px}.journey div{font-size:11px}.button-grid{grid-template-columns:1fr}.radio-item{font-size:13px}.section-title{letter-spacing:.03em}.progress-top{font-size:11px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+    @media print{body{background:white;color:#111}.container{display:none!important}.print-report{display:block;font:11pt/1.45 Arial,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere}.print-report h1{font:22pt Georgia,serif}.print-report h2{font:14pt Arial,sans-serif;margin:20px 0 8px;break-after:avoid}.print-row{margin:0 0 10px;white-space:pre-wrap;overflow-wrap:anywhere}.print-row strong{display:block}.print-intro{padding-bottom:14px;border-bottom:1px solid #bbb}.print-footer{margin-top:20px;border-top:1px solid #bbb;padding-top:12px;font-size:9pt}}
   </style>
 </head>
 
 <body>
   <main class="container">
     <header class="header">
-      <div class="badge">Avaliação de saúde</div>
-      <h1>Avaliação Médica Pré-Viagem</h1>
-      <p class="subtitle">Destino: Foz do Iguaçu/PR</p>
+      <div class="eyebrow"><span class="brand">SAÚDE EM VIAGEM</span><span class="badge">Cuidado antes de partir</span></div>
+      <h1>Uma viagem tranquila<br>começa com cuidado.</h1>
+      <p class="subtitle">Prepare as informações para sua avaliação médica pré-viagem.</p>
+      <div class="route" aria-label="Viagem de avião do Espírito Santo para Foz do Iguaçu"><div><small>Origem</small><strong>Espírito Santo</strong></div><span class="air" aria-hidden="true">↗</span><div><small>Destino · avião</small><strong>Foz do Iguaçu / PR</strong></div></div>
     </header>
-
-    <div class="intro">
-      Prezada paciente, responda às perguntas abaixo de acordo com seu estado atual de saúde.
-      As informações serão utilizadas pela médica responsável na avaliação relacionada à sua viagem.
-    </div>
-
+    <div class="journey"><div><b>01 · Você preenche</b>Uma resposta individual para cada viajante.</div><div><b>02 · A médica avalia</b>Envie seu resumo em conversa privada.</div><div><b>03 · Receba seu retorno</b>A médica orienta os próximos passos.</div></div>
+    <div class="intro"><p><strong>Seu formulário é pessoal.</strong> Responda com calma, de acordo com sua saúde hoje. Tenha em mãos seus medicamentos e os dados do voo.</p><p>As respostas ficam nesta página, sem salvamento automático. Ao terminar, salve o resumo e envie à médica pelo canal combinado. Este formulário <strong>não é um atestado de aptidão</strong>.</p></div>
+    <div class="progress-card"><div class="progress-top"><span id="progressText">Preencha os campos obrigatórios</span><a href="#entrega">Como enviar</a></div><progress id="progress" max="100" value="0" aria-label="Preenchimento do formulário"></progress></div>
+    <noscript><div class="notice">Ative o JavaScript para preencher, validar e gerar o resumo. Nenhuma resposta é enviada automaticamente.</div></noscript>
     <div id="errorBox" class="error-box" role="alert">
       Revise os campos destacados antes de salvar o formulário.
     </div>
 
-    <form id="travelForm" novalidate>
+    <form id="travelForm" novalidate autocomplete="off">
       <div class="section-title">1. Dados pessoais</div>
 
       <div class="form-group">
         <label class="question" for="nome">Nome completo</label>
-        <input id="nome" name="nome" type="text" autocomplete="name" required placeholder="Seu nome completo">
+        <input id="nome" name="nome" maxlength="160" type="text" autocomplete="name" required placeholder="Seu nome completo">
       </div>
 
       <div class="grid-2">
@@ -510,7 +542,15 @@
         <input id="telefone" name="telefone" type="tel" autocomplete="tel" required placeholder="(27) 99999-9999">
       </div>
 
-      <div class="section-title">2. Histórico de saúde</div>
+
+      <div class="section-title">2. Sua viagem de avião</div>
+      <div class="grid-2"><div class="form-group"><label class="question" for="partida">Data de ida</label><input id="partida" name="partida" type="date" required></div><div class="form-group"><label class="question" for="retorno">Data de volta <span class="hint">Opcional, se já definida.</span></label><input id="retorno" name="retorno" type="date"></div></div>
+      <div class="grid-2"><div class="form-group"><label class="question" for="companhia">Companhia aérea</label><select id="companhia" name="companhia" required><option value="">Selecione</option><option>Azul</option><option>GOL</option><option>LATAM</option><option>Outra</option><option>Ainda não sei</option></select></div><div class="form-group"><label class="question" for="voo">Voo e conexões <span class="hint">Opcional. Não informe código de reserva.</span></label><input id="voo" name="voo" type="text" maxlength="180" placeholder="Número, horário e conexões"></div></div>
+      <div class="form-group"><label class="question" for="solicitante">Quem solicitou o atestado?</label><select id="solicitante" name="solicitante" required><option value="">Selecione</option><option>Companhia aérea</option><option>Agência ou organizador da viagem</option><option>Solicitação pessoal</option><option>Outro / não sei informar</option></select></div>
+      <div class="form-group"><label class="question" for="exigencia">Orientações ou modelo recebido <span class="hint">Opcional. Informe prazo, finalidade ou exigência de MEDIF, se houver.</span></label><textarea id="exigencia" name="exigencia" maxlength="2000" placeholder="O que foi solicitado para esta viagem?"></textarea></div>
+      <div class="form-group"><label class="question">Precisa de assistência no aeroporto, cadeira de rodas, oxigênio ou equipamento médico durante o voo?</label><div class="radio-group" data-required-radio="assistencia"><label class="radio-item"><input type="radio" name="assistencia" value="nao"> Não</label><label class="radio-item"><input type="radio" name="assistencia" value="sim"> Sim</label></div><div id="assistencia_detail" class="dynamic"><textarea maxlength="2000" data-detail-for="assistencia" placeholder="Descreva o apoio ou equipamento e se já avisou a companhia."></textarea></div></div>
+      <div class="notice" id="airlineNotice" hidden><strong>Combine a assistência diretamente com a companhia.</strong> A empresa pode solicitar documentação ou MEDIF conforme a situação. Confirme as exigências e os prazos do seu voo; este questionário não substitui essa análise.</div>
+      <div class="section-title">3. Histórico de saúde</div>
 
       <div class="form-group">
         <label class="question">Possui alguma doença ou condição de saúde em acompanhamento?</label>
@@ -519,7 +559,7 @@
           <label class="radio-item"><input type="radio" name="condicao" value="sim"> Sim</label>
         </div>
         <div id="condicao_detail" class="dynamic">
-          <input type="text" data-detail-for="condicao" placeholder="Qual condição? Está em acompanhamento ou tratamento?">
+          <input type="text" maxlength="1000" data-detail-for="condicao" placeholder="Qual condição? Está em acompanhamento ou tratamento?">
         </div>
       </div>
 
@@ -530,7 +570,7 @@
           <label class="radio-item"><input type="radio" name="medicamentos" value="sim"> Sim</label>
         </div>
         <div id="medicamentos_detail" class="dynamic">
-          <input type="text" data-detail-for="medicamentos" placeholder="Informe os medicamentos e, se souber, as doses.">
+          <input type="text" maxlength="1000" data-detail-for="medicamentos" placeholder="Informe os medicamentos e, se souber, as doses.">
         </div>
       </div>
 
@@ -541,7 +581,7 @@
           <label class="radio-item"><input type="radio" name="alergia" value="sim"> Sim</label>
         </div>
         <div id="alergia_detail" class="dynamic">
-          <input type="text" data-detail-for="alergia" placeholder="Qual medicamento e, se souber, qual reação apresentou?">
+          <input type="text" maxlength="1000" data-detail-for="alergia" placeholder="Qual medicamento e, se souber, qual reação apresentou?">
         </div>
       </div>
 
@@ -552,11 +592,11 @@
           <label class="radio-item"><input type="radio" name="internacao" value="sim"> Sim</label>
         </div>
         <div id="internacao_detail" class="dynamic">
-          <input type="text" data-detail-for="internacao" placeholder="Informe o motivo e a data aproximada.">
+          <input type="text" maxlength="1000" data-detail-for="internacao" placeholder="Informe o motivo e a data aproximada.">
         </div>
       </div>
 
-      <div class="section-title">3. Condição atual e antecedentes relevantes</div>
+      <div class="section-title">4. Como você está hoje</div>
 
       <div class="form-group">
         <label class="question">
@@ -567,7 +607,7 @@
           <label class="radio-item"><input type="radio" name="antecedente" value="sim"> Sim</label>
         </div>
         <div id="antecedente_detail" class="dynamic">
-          <input type="text" data-detail-for="antecedente" placeholder="Informe qual condição e quando ocorreu.">
+          <input type="text" maxlength="1000" data-detail-for="antecedente" placeholder="Informe qual condição e quando ocorreu.">
         </div>
       </div>
 
@@ -580,10 +620,11 @@
           <label class="radio-item"><input type="radio" name="sintomas" value="sim"> Sim</label>
         </div>
         <div id="sintomas_detail" class="dynamic">
-          <textarea data-detail-for="sintomas" placeholder="Descreva o que sentiu, quando ocorreu e se ainda está acontecendo."></textarea>
+          <textarea maxlength="2000" data-detail-for="sintomas" placeholder="Descreva o que sentiu, quando ocorreu e se ainda está acontecendo."></textarea>
         </div>
       </div>
 
+      <div id="urgentNotice" class="notice" role="status" hidden><strong>Se esses sintomas estão acontecendo agora, não espere o formulário.</strong> Procure atendimento imediato. Em uma emergência, ligue <a href="tel:192">192 (SAMU)</a>. A resposta será incluída no resumo para sua médica.</div>
       <div class="form-group">
         <label class="question">Está com febre, infecção ou outro problema agudo de saúde atualmente?</label>
         <div class="radio-group" data-required-radio="agudo">
@@ -591,7 +632,7 @@
           <label class="radio-item"><input type="radio" name="agudo" value="sim"> Sim</label>
         </div>
         <div id="agudo_detail" class="dynamic">
-          <input type="text" data-detail-for="agudo" placeholder="Descreva brevemente.">
+          <input type="text" maxlength="1000" data-detail-for="agudo" placeholder="Descreva brevemente.">
         </div>
       </div>
 
@@ -602,7 +643,7 @@
           <label class="radio-item"><input type="radio" name="limitacao" value="sim"> Sim</label>
         </div>
         <div id="limitacao_detail" class="dynamic">
-          <input type="text" data-detail-for="limitacao" placeholder="Descreva a limitação.">
+          <input type="text" maxlength="1000" data-detail-for="limitacao" placeholder="Descreva a limitação.">
         </div>
       </div>
 
@@ -613,7 +654,7 @@
           <label class="radio-item"><input type="radio" name="gestacao" value="sim"> Sim</label>
         </div>
         <div id="gestacao_detail" class="dynamic">
-          <input type="text" data-detail-for="gestacao" placeholder="Se souber, informe a idade gestacional e se existe alguma intercorrência.">
+          <input type="text" maxlength="1000" data-detail-for="gestacao" placeholder="Se souber, informe a idade gestacional e se existe alguma intercorrência.">
         </div>
       </div>
 
@@ -624,7 +665,7 @@
           <label class="radio-item"><input type="radio" name="restricao" value="sim"> Sim</label>
         </div>
         <div id="restricao_detail" class="dynamic">
-          <input type="text" data-detail-for="restricao" placeholder="Qual foi a orientação e por qual motivo?">
+          <input type="text" maxlength="1000" data-detail-for="restricao" placeholder="Qual foi a orientação e por qual motivo?">
         </div>
       </div>
 
@@ -633,10 +674,10 @@
           Existe alguma outra informação sobre sua saúde que você considere relevante para esta viagem?
           <span class="hint">Se não houver, pode deixar em branco.</span>
         </label>
-        <textarea id="outras" name="outras" placeholder="Informação adicional, se houver."></textarea>
+        <textarea id="outras" name="outras" maxlength="3000" placeholder="Informação adicional, se houver."></textarea>
       </div>
 
-      <div class="section-title">4. Declaração</div>
+      <div class="section-title">5. Revise e conclua</div>
 
       <div class="declaration">
         Declaro que as informações fornecidas neste formulário são verdadeiras e completas segundo meu conhecimento.
@@ -654,144 +695,121 @@
         <input type="date" id="data_hoje" name="data_hoje" required>
       </div>
 
-      <div class="actions">
-        <button class="btn" type="button" id="printBtn">Salvar como PDF / Imprimir</button>
-        <p class="privacy-note">Este arquivo não envia dados automaticamente pela internet.</p>
+      <div class="actions" id="entrega">
+        <div class="button-grid"><button class="btn" type="button" id="printBtn">Revisar e salvar PDF</button><button class="btn secondary" type="button" id="shareBtn">Compartilhar resumo</button></div>
+        <p class="privacy-note">O PDF será criado pela opção “Salvar como PDF” do seu dispositivo. Compartilhe apenas com a médica, em conversa individual.</p>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <button class="text-button" type="button" id="resetBtn">Apagar respostas / próxima viajante</button>
       </div>
     </form>
+    <details class="support"><summary>Como enviar seu formulário</summary><ol><li>Preencha individualmente e revise suas informações.</li><li>Salve o PDF ou compartilhe o resumo com a médica pelo canal privado combinado. O site não faz esse envio sozinho.</li><li>A médica avaliará a necessidade de consulta, informações adicionais e a possibilidade de emissão do atestado.</li><li>Depois de receber o documento assinado, encaminhe apenas o atestado a quem o solicitou. O questionário de saúde completo é destinado à médica.</li></ol><p>Um atestado não substitui o MEDIF quando exigido pela companhia. Confirme as regras diretamente com a empresa.</p></details>
+    <details class="support"><summary>Privacidade e informações importantes</summary><p>Não há cadastro, banco de dados, rastreadores ou armazenamento automático das respostas. Elas permanecem na memória da página enquanto ela estiver aberta. Ao sair ou atualizar, podem ser perdidas. Use “Apagar respostas” ao terminar em um aparelho compartilhado.</p><p>Os arquivos que você salvar ou enviar ficam sob seu controle e não são apagados pelo site. O provedor que hospeda esta página pode registrar dados técnicos de acesso, como IP. Não inclua respostas de saúde em grupos, links públicos ou no GitHub.</p><p>O formulário organiza informações autorreferidas: não diagnostica, não determina aptidão e não garante embarque. A declaração de veracidade não substitui a avaliação clínica.</p><p>Referências: <a href="https://portal.cfm.org.br/noticias/cfm-atualiza-resolucao-que-regulamenta-emissao-de-atestado-medico" target="_blank" rel="noopener noreferrer">CFM · documentos médicos</a> · <a href="https://www.anac.gov.br/assuntos/legislacao/legislacao-1/resolucoes/resolucoes-2013/resolucao-no-280-de-11-07-2013" target="_blank" rel="noopener noreferrer">ANAC · assistência especial</a>.</p></details>
+    <footer class="footer">Espírito Santo → Foz do Iguaçu<br>Informações para avaliação individual · sem liberação automática</footer>
   </main>
+  <section id="printReport" class="print-report" aria-label="Resumo de saúde para avaliação médica"></section>
 
-  <script>
-    const conditionalNames = [
-      "condicao",
-      "medicamentos",
-      "alergia",
-      "internacao",
-      "antecedente",
-      "sintomas",
-      "agudo",
-      "limitacao",
-      "gestacao",
-      "restricao"
-    ];
-
-    function setLocalToday() {
-      const now = new Date();
-      const local = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
-      document.getElementById("data_hoje").value = local.toISOString().slice(0, 10);
-    }
-
-    function maskCpf(value) {
-      return value
-        .replace(/\D/g, "")
-        .slice(0, 11)
-        .replace(/(\d{3})(\d)/, "$1.$2")
-        .replace(/(\d{3})(\d)/, "$1.$2")
-        .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
-    }
-
-    function updateConditional(name) {
-      const selected = document.querySelector(`input[name="${name}"]:checked`);
-      const box = document.getElementById(`${name}_detail`);
-      if (!box) return;
-
-      const detail = box.querySelector("[data-detail-for]");
-      const show = selected && selected.value === "sim";
-
-      box.classList.toggle("visible", show);
-
-      if (detail) {
-        detail.required = !!show;
-        if (!show) {
-          detail.classList.remove("invalid");
-        }
-      }
-    }
-
-    function clearInvalid() {
-      document.querySelectorAll(".invalid").forEach(el => el.classList.remove("invalid"));
-      document.getElementById("errorBox").classList.remove("visible");
-    }
-
-    function validateForm() {
-      clearInvalid();
-      let firstInvalid = null;
-
-      const requiredInputs = document.querySelectorAll(
-        '#travelForm input[required]:not([type="radio"]):not([type="checkbox"]), #travelForm textarea[required]'
-      );
-
-      requiredInputs.forEach(el => {
-        if (!el.value.trim()) {
-          el.classList.add("invalid");
-          if (!firstInvalid) firstInvalid = el;
-        }
-      });
-
-      document.querySelectorAll("[data-required-radio]").forEach(group => {
-        const name = group.dataset.requiredRadio;
-        const selected = document.querySelector(`input[name="${name}"]:checked`);
-        if (!selected) {
-          group.querySelectorAll(".radio-item").forEach(label => label.classList.add("invalid"));
-          if (!firstInvalid) firstInvalid = group;
-        }
-      });
-
-      conditionalNames.forEach(name => {
-        const selected = document.querySelector(`input[name="${name}"]:checked`);
-        if (selected && selected.value === "sim") {
-          const detail = document.querySelector(`[data-detail-for="${name}"]`);
-          if (detail && !detail.value.trim()) {
-            detail.classList.add("invalid");
-            if (!firstInvalid) firstInvalid = detail;
-          }
-        }
-      });
-
-      const aceite = document.getElementById("aceite");
-      if (!aceite.checked) {
-        aceite.classList.add("invalid");
-        if (!firstInvalid) firstInvalid = aceite;
-      }
-
-      const hasInvalid = document.querySelector(".invalid") !== null;
-      if (hasInvalid) {
-        const errorBox = document.getElementById("errorBox");
-        errorBox.classList.add("visible");
-        if (firstInvalid?.scrollIntoView) {
-          firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-        return false;
-      }
-
-      return true;
-    }
-
-    conditionalNames.forEach(name => {
-      document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
-        radio.addEventListener("change", () => {
-          updateConditional(name);
-          const group = document.querySelector(`[data-required-radio="${name}"]`);
-          group?.querySelectorAll(".radio-item").forEach(label => label.classList.remove("invalid"));
-        });
-      });
-    });
-
-    document.getElementById("cpf").addEventListener("input", event => {
-      event.target.value = maskCpf(event.target.value);
-      event.target.classList.remove("invalid");
-    });
-
-    document.querySelectorAll("input, textarea").forEach(el => {
-      el.addEventListener("input", () => el.classList.remove("invalid"));
-      el.addEventListener("change", () => el.classList.remove("invalid"));
-    });
-
-    document.getElementById("printBtn").addEventListener("click", () => {
-      if (validateForm()) window.print();
-    });
-
-    setLocalToday();
-  </script>
+  <script>'use strict';
+const form = document.getElementById('travelForm');
+const $ = id => document.getElementById(id);
+const groups = [...form.querySelectorAll('[data-required-radio]')];
+let dirty = false;
+function today() {const d = new Date(); return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10);}
+function validCpf(value) {
+  const n=value.replace(/\D/g,'');
+  if(!/^\d{11}$/.test(n)||/^(\d)\1{10}$/.test(n)) return false;
+  for(let len=9;len<=10;len++){let sum=0;for(let i=0;i<len;i++)sum+=Number(n[i])*(len+1-i);let digit=(sum*10)%11;if(digit===10)digit=0;if(digit!==Number(n[len]))return false;}
+  return true;
+}
+function selected(name){return form.querySelector('input[name="'+name+'"]:checked');}
+function updateConditional(name){
+  const box=$(name+'_detail');if(!box)return;
+  const show=selected(name)?.value==='sim';
+  box.classList.toggle('visible',show);
+  const detail=box.querySelector('[data-detail-for]');
+  detail.disabled=!show;detail.required=show;
+  if(!show){detail.value='';detail.classList.remove('invalid');detail.removeAttribute('aria-invalid');}
+  $('urgentNotice').hidden=selected('sintomas')?.value!=='sim';
+  $('airlineNotice').hidden=selected('assistencia')?.value!=='sim';
+}
+groups.forEach((group,index)=>{
+  const name=group.dataset.requiredRadio;
+  const question=group.closest('.form-group').querySelector('.question');
+  question.id='question-'+name;group.setAttribute('role','group');group.setAttribute('aria-labelledby',question.id);
+  const label=document.createElement('label');label.className='radio-item';
+  const radio=document.createElement('input');radio.type='radio';radio.name=name;radio.value='nao_sei';label.append(radio,document.createTextNode('Não sei'));group.append(label);
+  const detail=form.querySelector('[data-detail-for="'+name+'"]');
+  if(detail){detail.name=name+'_detalhe';detail.setAttribute('aria-label','Detalhes: '+question.textContent.trim());}
+  group.addEventListener('change',()=>updateConditional(name));updateConditional(name);
+});
+function progress(){
+  const required=[...form.querySelectorAll('[required]:not([type="radio"])')].filter(el=>!el.disabled);
+  const complete=required.filter(el=>el.type==='checkbox'?el.checked:el.value.trim()).length+groups.filter(g=>selected(g.dataset.requiredRadio)).length;
+  const total=required.length+groups.length;
+  $('progress').value=Math.round(100*complete/total);
+  $('progressText').textContent=complete+' de '+total+' campos obrigatórios preenchidos';
+}
+function validate(){
+  form.querySelectorAll('.invalid').forEach(el=>el.classList.remove('invalid'));
+  form.querySelectorAll('[aria-invalid]').forEach(el=>el.removeAttribute('aria-invalid'));
+  const errors=[];
+  function bad(el,message){el.classList.add('invalid');el.setAttribute('aria-invalid','true');errors.push({el,message});}
+  [...form.querySelectorAll('[required]')].filter(el=>!el.disabled).forEach(el=>{if(el.type==='checkbox'?!el.checked:!el.value.trim())bad(el,'Preencha todos os campos obrigatórios e confirme a declaração.');});
+  groups.forEach(g=>{if(!selected(g.dataset.requiredRadio))bad(g.querySelector('input'),'Responda às perguntas de saúde. Você pode selecionar “Não sei”.');});
+  if($('cpf').value&&!validCpf($('cpf').value))bad($('cpf'),'Confira os 11 dígitos do CPF.');
+  const phone=$('telefone').value.replace(/\D/g,'');
+  if(phone&&!/^(?:55)?\d{10,11}$/.test(phone))bad($('telefone'),'Informe telefone com DDD (10 ou 11 dígitos, ou +55).');
+  if($('nome').value.trim()&&!/^\S+\s+\S+/.test($('nome').value.trim()))bad($('nome'),'Informe seu nome completo.');
+  if($('nascimento').value&&($('nascimento').value>today()||$('nascimento').value<'1900-01-01'))bad($('nascimento'),'Confira a data de nascimento.');
+  if($('partida').value&&$('partida').value<today())bad($('partida'),'A data de ida não pode ser anterior a hoje.');
+  if($('retorno').value&&$('retorno').value<$('partida').value)bad($('retorno'),'A volta não pode ser anterior à ida.');
+  if($('data_hoje').value&&$('data_hoje').value!==today())bad($('data_hoje'),'Use a data de hoje para registrar seu estado atual de saúde.');
+  $('errorBox').classList.toggle('visible',errors.length>0);
+  if(errors.length){$('errorBox').textContent=[...new Set(errors.map(e=>e.message))].join(' ');errors[0].el.focus();errors[0].el.scrollIntoView({block:'center',behavior:'smooth'});return false;}
+  return true;
+}
+function pretty(el){if(el.type==='date'&&el.value)return el.value.split('-').reverse().join('/');return el.value.trim()||'Não informado';}
+function reportRows(){
+  const rows=[];
+  form.querySelectorAll('.section-title,.form-group').forEach(el=>{
+    if(el.classList.contains('section-title')){rows.push({section:el.textContent.trim()});return;}
+    const q=el.querySelector('.question');if(!q)return;
+    const title=q.cloneNode(true);title.querySelectorAll('.hint').forEach(h=>h.remove());
+    const group=el.querySelector('[data-required-radio]');let answer;
+    if(group){const name=group.dataset.requiredRadio;const val=selected(name)?.value;answer={sim:'Sim',nao:'Não',nao_sei:'Não sei'}[val]||'Não respondido';if(val==='sim')answer+=' — '+el.querySelector('[data-detail-for]').value.trim();}
+    else {const field=el.querySelector('input,textarea,select');if(!field)return;answer=pretty(field);}
+    rows.push({label:title.textContent.trim(),value:answer});
+  });
+  rows.push({label:'Declaração da viajante',value:$('aceite').checked?'Confirmou que as informações são verdadeiras e completas segundo seu conhecimento.':'Não confirmada.'});
+  return rows;
+}
+function buildReport(){
+  const root=$('printReport');root.replaceChildren();
+  const heading=document.createElement('h1');heading.textContent='Resumo de saúde pré-viagem';root.append(heading);
+  const intro=document.createElement('p');intro.className='print-intro';intro.textContent='Espírito Santo → Foz do Iguaçu / PR · Avião\nInformações autorreferidas para avaliação médica individual. Não é atestado, diagnóstico ou autorização de embarque.';root.append(intro);
+  reportRows().forEach(row=>{if(row.section){const h=document.createElement('h2');h.textContent=row.section;root.append(h);}else{const p=document.createElement('p');p.className='print-row';const strong=document.createElement('strong');strong.textContent=row.label;p.append(strong,document.createTextNode(row.value));root.append(p);}});
+  const footer=document.createElement('p');footer.className='print-footer';footer.textContent='Documento confidencial destinado à médica. A declaração não substitui consulta, avaliação clínica ou assinatura médica. A aptidão e a eventual emissão de atestado dependem da avaliação individual.';root.append(footer);
+  return 'RESUMO DE SAÚDE PRÉ-VIAGEM\nEspírito Santo → Foz do Iguaçu · Avião\nInformações autorreferidas. Não é atestado ou autorização de embarque.\n\n'+reportRows().map(row=>row.section||row.label+'\n'+row.value).join('\n\n');
+}
+function downloadText(text){const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='resumo-saude-viagem.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+$('printBtn').addEventListener('click',()=>{if(!validate())return;buildReport();window.print();$('status').textContent='Na janela de impressão, escolha “Salvar como PDF”. Depois envie o arquivo à médica em conversa individual.';});
+window.addEventListener('beforeprint',buildReport);
+$('shareBtn').addEventListener('click',async()=>{
+  if(!validate())return;
+  if(!confirm('Este resumo contém seus dados de saúde. Compartilhe apenas com a médica, em conversa individual. Continuar?'))return;
+  const text=buildReport();
+  try{const file=new File([text],'resumo-saude-viagem.txt',{type:'text/plain'});
+    if(navigator.canShare?.({files:[file]})){await navigator.share({files:[file],title:'Resumo para avaliação médica'});$('status').textContent='Compartilhamento concluído pelo dispositivo.';}
+    else{downloadText(text);$('status').textContent='Resumo baixado em texto. Anexe o arquivo em uma conversa privada com a médica, ou use a opção PDF.';}
+  }catch(e){$('status').textContent=e.name==='AbortError'?'Compartilhamento cancelado.':'Não foi possível compartilhar. Use “Revisar e salvar PDF”.';}
+});
+function reset(){form.reset();$('printReport').replaceChildren();groups.forEach(g=>updateConditional(g.dataset.requiredRadio));form.querySelectorAll('.invalid').forEach(el=>el.classList.remove('invalid'));form.querySelectorAll('[aria-invalid]').forEach(el=>el.removeAttribute('aria-invalid'));$('errorBox').classList.remove('visible');$('data_hoje').value=today();$('nascimento').max=today();$('partida').min=today();$('status').textContent='';dirty=false;progress();}
+$('resetBtn').addEventListener('click',()=>{if(!confirm('Apagar todas as respostas desta página e começar um formulário em branco? PDFs e mensagens já enviados não serão apagados.'))return;reset();$('nome').focus();$('status').textContent='Respostas apagadas. Formulário pronto para a próxima viajante.';});
+$('cpf').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');});
+form.addEventListener('submit',e=>{e.preventDefault();validate();});
+['input','change'].forEach(type=>form.addEventListener(type,e=>{dirty=true;e.target.classList.remove('invalid');e.target.removeAttribute('aria-invalid');$('printReport').replaceChildren();progress();}));
+window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
+window.addEventListener('pageshow',e=>{if(e.persisted)reset();});
+reset();
+</script>
 </body>
 </html>
