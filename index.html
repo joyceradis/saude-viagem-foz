@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saúde em viagem · Espírito Santo → Foz do Iguaçu</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-58x+PCKiBYO71Mw/6hXHf6qGXPAgxu48hfEUGrDHO5w='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+  <title>Avaliação pré-viagem · Tupperware · Foz do Iguaçu</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
   <meta name="referrer" content="no-referrer">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Prepare sua avaliação de saúde para viajar de avião a Foz do Iguaçu. Formulário individual, resumo para a médica e orientações para o atestado.">
+  <meta name="description" content="Formulário de saúde para avaliação médica antes da viagem da Tupperware a Foz do Iguaçu.">
   <meta name="theme-color" content="#123f38">
   <style>
     :root {
@@ -503,13 +503,13 @@
 <body>
   <main class="container">
     <header class="header">
-      <div class="eyebrow"><span class="brand">SAÚDE EM VIAGEM</span><span class="badge">Cuidado antes de partir</span></div>
-      <h1>Uma viagem tranquila<br>começa com cuidado.</h1>
-      <p class="subtitle">Prepare as informações para sua avaliação médica pré-viagem.</p>
-      <div class="route" aria-label="Viagem de avião do Espírito Santo para Foz do Iguaçu"><div><small>Origem</small><strong>Espírito Santo</strong></div><span class="air" aria-hidden="true">↗</span><div><small>Destino · avião</small><strong>Foz do Iguaçu / PR</strong></div></div>
+      <div class="eyebrow"><span class="brand">TUPPERWARE · FOZ DO IGUAÇU</span><span class="badge">Avaliação pré-viagem</span></div>
+      <h1>Informações de saúde<br>para a viagem.</h1>
+      <p class="subtitle">Preencha este formulário para avaliação médica antes da viagem da Tupperware.</p>
+      <div class="route" aria-label="Viagem da Tupperware do Espírito Santo para Foz do Iguaçu"><div><small>Origem</small><strong>Espírito Santo</strong></div><span class="air" aria-hidden="true">→</span><div><small>Destino</small><strong>Foz do Iguaçu / PR</strong></div></div>
     </header>
-    <div class="journey"><div><b>01 · Você preenche</b>Uma resposta individual para cada viajante.</div><div><b>02 · A médica avalia</b>Envie seu resumo em conversa privada.</div><div><b>03 · Receba seu retorno</b>A médica orienta os próximos passos.</div></div>
-    <div class="intro"><p><strong>Seu formulário é pessoal.</strong> Responda com calma, de acordo com sua saúde hoje. Tenha em mãos seus medicamentos e os dados do voo.</p><p>As respostas ficam nesta página, sem salvamento automático. Ao terminar, salve o resumo e envie à médica pelo canal combinado. Este formulário <strong>não é um atestado de aptidão</strong>.</p></div>
+    <div class="journey"><div><b>01 · Preencha</b>Responda com seus dados e informações de saúde.</div><div><b>02 · Gere o PDF</b>Ao final, salve o resumo em PDF no seu celular.</div><div><b>03 · Envie à médica</b>Mande o PDF para a Dra. Joyce pelo WhatsApp.</div></div>
+    <div class="intro"><p>Responda de acordo com seu estado de saúde atual. Se usar medicamentos, tenha os nomes em mãos.</p><p>Ao final, gere o PDF e envie diretamente para a Dra. Joyce pelo WhatsApp. O formulário serve para organizar as informações da avaliação médica e <strong>não substitui o atestado</strong>.</p></div>
     <div class="progress-card"><div class="progress-top"><span id="progressText">Preencha os campos obrigatórios</span><a href="#entrega">Como enviar</a></div><progress id="progress" max="100" value="0" aria-label="Preenchimento do formulário"></progress></div>
     <noscript><div class="notice">Ative o JavaScript para preencher, validar e gerar o resumo. Nenhuma resposta é enviada automaticamente.</div></noscript>
     <div id="errorBox" class="error-box" role="alert">
@@ -543,13 +543,18 @@
       </div>
 
 
-      <div class="section-title">2. Sua viagem de avião</div>
-      <div class="grid-2"><div class="form-group"><label class="question" for="partida">Data de ida</label><input id="partida" name="partida" type="date" required></div><div class="form-group"><label class="question" for="retorno">Data de volta <span class="hint">Opcional, se já definida.</span></label><input id="retorno" name="retorno" type="date"></div></div>
-      <div class="grid-2"><div class="form-group"><label class="question" for="companhia">Companhia aérea</label><select id="companhia" name="companhia" required><option value="">Selecione</option><option>Azul</option><option>GOL</option><option>LATAM</option><option>Outra</option><option>Ainda não sei</option></select></div><div class="form-group"><label class="question" for="voo">Voo e conexões <span class="hint">Opcional. Não informe código de reserva.</span></label><input id="voo" name="voo" type="text" maxlength="180" placeholder="Número, horário e conexões"></div></div>
-      <div class="form-group"><label class="question" for="solicitante">Quem solicitou o atestado?</label><select id="solicitante" name="solicitante" required><option value="">Selecione</option><option>Companhia aérea</option><option>Agência ou organizador da viagem</option><option>Solicitação pessoal</option><option>Outro / não sei informar</option></select></div>
-      <div class="form-group"><label class="question" for="exigencia">Orientações ou modelo recebido <span class="hint">Opcional. Informe prazo, finalidade ou exigência de MEDIF, se houver.</span></label><textarea id="exigencia" name="exigencia" maxlength="2000" placeholder="O que foi solicitado para esta viagem?"></textarea></div>
-      <div class="form-group"><label class="question">Precisa de assistência no aeroporto, cadeira de rodas, oxigênio ou equipamento médico durante o voo?</label><div class="radio-group" data-required-radio="assistencia"><label class="radio-item"><input type="radio" name="assistencia" value="nao"> Não</label><label class="radio-item"><input type="radio" name="assistencia" value="sim"> Sim</label></div><div id="assistencia_detail" class="dynamic"><textarea maxlength="2000" data-detail-for="assistencia" placeholder="Descreva o apoio ou equipamento e se já avisou a companhia."></textarea></div></div>
-      <div class="notice" id="airlineNotice" hidden><strong>Combine a assistência diretamente com a companhia.</strong> A empresa pode solicitar documentação ou MEDIF conforme a situação. Confirme as exigências e os prazos do seu voo; este questionário não substitui essa análise.</div>
+      <div class="section-title">2. Sobre a viagem</div>
+      <div class="grid-2">
+        <div class="form-group">
+          <label class="question" for="partida">Data de ida</label>
+          <input id="partida" name="partida" type="date" required>
+        </div>
+        <div class="form-group">
+          <label class="question" for="retorno">Data de volta <span class="hint">Se já estiver definida.</span></label>
+          <input id="retorno" name="retorno" type="date">
+        </div>
+      </div>
+
       <div class="section-title">3. Histórico de saúde</div>
 
       <div class="form-group">
@@ -696,15 +701,15 @@
       </div>
 
       <div class="actions" id="entrega">
-        <div class="button-grid"><button class="btn" type="button" id="printBtn">Revisar e salvar PDF</button><button class="btn secondary" type="button" id="shareBtn">Compartilhar resumo</button></div>
-        <p class="privacy-note">O PDF será criado pela opção “Salvar como PDF” do seu dispositivo. Compartilhe apenas com a médica, em conversa individual.</p>
+        <button class="btn" type="button" id="printBtn">Gerar PDF para enviar à Dra. Joyce</button>
+        <p class="privacy-note">Na tela seguinte, escolha “Salvar como PDF”. Depois, envie o arquivo para a Dra. Joyce pelo WhatsApp.</p>
         <p id="status" class="status" role="status" aria-live="polite"></p>
         <button class="text-button" type="button" id="resetBtn">Apagar respostas / próxima viajante</button>
       </div>
     </form>
-    <details class="support"><summary>Como enviar seu formulário</summary><ol><li>Preencha individualmente e revise suas informações.</li><li>Salve o PDF ou compartilhe o resumo com a médica pelo canal privado combinado. O site não faz esse envio sozinho.</li><li>A médica avaliará a necessidade de consulta, informações adicionais e a possibilidade de emissão do atestado.</li><li>Depois de receber o documento assinado, encaminhe apenas o atestado a quem o solicitou. O questionário de saúde completo é destinado à médica.</li></ol><p>Um atestado não substitui o MEDIF quando exigido pela companhia. Confirme as regras diretamente com a empresa.</p></details>
-    <details class="support"><summary>Privacidade e informações importantes</summary><p>Não há cadastro, banco de dados, rastreadores ou armazenamento automático das respostas. Elas permanecem na memória da página enquanto ela estiver aberta. Ao sair ou atualizar, podem ser perdidas. Use “Apagar respostas” ao terminar em um aparelho compartilhado.</p><p>Os arquivos que você salvar ou enviar ficam sob seu controle e não são apagados pelo site. O provedor que hospeda esta página pode registrar dados técnicos de acesso, como IP. Não inclua respostas de saúde em grupos, links públicos ou no GitHub.</p><p>O formulário organiza informações autorreferidas: não diagnostica, não determina aptidão e não garante embarque. A declaração de veracidade não substitui a avaliação clínica.</p><p>Referências: <a href="https://portal.cfm.org.br/noticias/cfm-atualiza-resolucao-que-regulamenta-emissao-de-atestado-medico" target="_blank" rel="noopener noreferrer">CFM · documentos médicos</a> · <a href="https://www.anac.gov.br/assuntos/legislacao/legislacao-1/resolucoes/resolucoes-2013/resolucao-no-280-de-11-07-2013" target="_blank" rel="noopener noreferrer">ANAC · assistência especial</a>.</p></details>
-    <footer class="footer">Espírito Santo → Foz do Iguaçu<br>Informações para avaliação individual · sem liberação automática</footer>
+    <details class="support"><summary>Como finalizar</summary><ol><li>Preencha e revise as respostas.</li><li>Toque em “Gerar PDF para enviar à Dra. Joyce”.</li><li>Salve o arquivo em PDF no seu celular.</li><li>Envie o PDF para a Dra. Joyce pelo WhatsApp.</li></ol></details>
+    <details class="support"><summary>Privacidade</summary><p>As respostas não são enviadas automaticamente e não ficam armazenadas neste site. Elas permanecem apenas nesta página enquanto o formulário estiver aberto.</p><p>O PDF contém informações de saúde. Envie somente para a Dra. Joyce, em conversa individual.</p><p>O formulário organiza informações fornecidas por você para avaliação médica e não substitui consulta ou atestado.</p></details>
+    <footer class="footer">Viagem Tupperware · Espírito Santo → Foz do Iguaçu<br>Avaliação médica individual</footer>
   </main>
   <section id="printReport" class="print-report" aria-label="Resumo de saúde para avaliação médica"></section>
 
@@ -729,7 +734,6 @@ function updateConditional(name){
   detail.disabled=!show;detail.required=show;
   if(!show){detail.value='';detail.classList.remove('invalid');detail.removeAttribute('aria-invalid');}
   $('urgentNotice').hidden=selected('sintomas')?.value!=='sim';
-  $('airlineNotice').hidden=selected('assistencia')?.value!=='sim';
 }
 groups.forEach((group,index)=>{
   const name=group.dataset.requiredRadio;
@@ -785,23 +789,13 @@ function reportRows(){
 function buildReport(){
   const root=$('printReport');root.replaceChildren();
   const heading=document.createElement('h1');heading.textContent='Resumo de saúde pré-viagem';root.append(heading);
-  const intro=document.createElement('p');intro.className='print-intro';intro.textContent='Espírito Santo → Foz do Iguaçu / PR · Avião\nInformações autorreferidas para avaliação médica individual. Não é atestado, diagnóstico ou autorização de embarque.';root.append(intro);
+  const intro=document.createElement('p');intro.className='print-intro';intro.textContent='Viagem Tupperware · Espírito Santo → Foz do Iguaçu / PR\nInformações fornecidas pela viajante para avaliação médica individual. Este resumo não é um atestado.';root.append(intro);
   reportRows().forEach(row=>{if(row.section){const h=document.createElement('h2');h.textContent=row.section;root.append(h);}else{const p=document.createElement('p');p.className='print-row';const strong=document.createElement('strong');strong.textContent=row.label;p.append(strong,document.createTextNode(row.value));root.append(p);}});
   const footer=document.createElement('p');footer.className='print-footer';footer.textContent='Documento confidencial destinado à médica. A declaração não substitui consulta, avaliação clínica ou assinatura médica. A aptidão e a eventual emissão de atestado dependem da avaliação individual.';root.append(footer);
-  return 'RESUMO DE SAÚDE PRÉ-VIAGEM\nEspírito Santo → Foz do Iguaçu · Avião\nInformações autorreferidas. Não é atestado ou autorização de embarque.\n\n'+reportRows().map(row=>row.section||row.label+'\n'+row.value).join('\n\n');
+  return 'RESUMO DE SAÚDE PRÉ-VIAGEM\nViagem Tupperware · Espírito Santo → Foz do Iguaçu\nInformações fornecidas pela viajante para avaliação médica individual.\n\n'+reportRows().map(row=>row.section||row.label+'\n'+row.value).join('\n\n');
 }
-function downloadText(text){const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='resumo-saude-viagem.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
-$('printBtn').addEventListener('click',()=>{if(!validate())return;buildReport();window.print();$('status').textContent='Na janela de impressão, escolha “Salvar como PDF”. Depois envie o arquivo à médica em conversa individual.';});
+$('printBtn').addEventListener('click',()=>{if(!validate())return;buildReport();window.print();$('status').textContent='Depois de salvar o PDF, envie o arquivo para a Dra. Joyce pelo WhatsApp.';});
 window.addEventListener('beforeprint',buildReport);
-$('shareBtn').addEventListener('click',async()=>{
-  if(!validate())return;
-  if(!confirm('Este resumo contém seus dados de saúde. Compartilhe apenas com a médica, em conversa individual. Continuar?'))return;
-  const text=buildReport();
-  try{const file=new File([text],'resumo-saude-viagem.txt',{type:'text/plain'});
-    if(navigator.canShare?.({files:[file]})){await navigator.share({files:[file],title:'Resumo para avaliação médica'});$('status').textContent='Compartilhamento concluído pelo dispositivo.';}
-    else{downloadText(text);$('status').textContent='Resumo baixado em texto. Anexe o arquivo em uma conversa privada com a médica, ou use a opção PDF.';}
-  }catch(e){$('status').textContent=e.name==='AbortError'?'Compartilhamento cancelado.':'Não foi possível compartilhar. Use “Revisar e salvar PDF”.';}
-});
 function reset(){form.reset();$('printReport').replaceChildren();groups.forEach(g=>updateConditional(g.dataset.requiredRadio));form.querySelectorAll('.invalid').forEach(el=>el.classList.remove('invalid'));form.querySelectorAll('[aria-invalid]').forEach(el=>el.removeAttribute('aria-invalid'));$('errorBox').classList.remove('visible');$('data_hoje').value=today();$('nascimento').max=today();$('partida').min=today();$('status').textContent='';dirty=false;progress();}
 $('resetBtn').addEventListener('click',()=>{if(!confirm('Apagar todas as respostas desta página e começar um formulário em branco? PDFs e mensagens já enviados não serão apagados.'))return;reset();$('nome').focus();$('status').textContent='Respostas apagadas. Formulário pronto para a próxima viajante.';});
 $('cpf').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'').slice(0,11).replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');});
