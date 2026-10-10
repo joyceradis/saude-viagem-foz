@@ -8,11 +8,11 @@
 <meta name="theme-color" content="#00524f">
 <meta name="referrer" content="no-referrer">
 <meta name="robots" content="noindex, nofollow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src https://viacep.com.br; form-action 'none'; base-uri 'none'; object-src 'none'">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/styles.css?v=5">
+<link rel="stylesheet" href="assets/styles.css?v=6-review">
 <script src="assets/vendor/jspdf.umd.min.js" defer></script>
-<script src="assets/app.js?v=5" defer></script>
+<script src="assets/app.js?v=6-review" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#formStart">Ir para o formulário</a>
@@ -54,6 +54,47 @@
         <input id="telefone" name="telefone" type="tel" maxlength="20" autocomplete="tel" placeholder="(27) 99999-9999">
       </div>
 
+
+      <h3 class="subsection address-title">Endereço residencial <span class="subsection-tag">Para seu cadastro médico</span></h3>
+      <p class="section-description">É rapidinho: informe seu CEP para preencher o endereço automaticamente. Se a busca não funcionar, você pode escrever os dados normalmente.</p>
+      <div class="address-panel">
+        <div class="grid-2 address-lookup-row">
+          <div class="form-group">
+            <label class="question" for="cep">CEP</label>
+            <input id="cep" name="cep" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="9" placeholder="00000-000" aria-describedby="cepStatus">
+            <p class="cep-status" id="cepStatus" role="status" aria-live="polite">Preencha o CEP ou digite o endereço manualmente.</p>
+          </div>
+          <div class="form-group">
+            <label class="question" for="numero">Número</label>
+            <input id="numero" name="numero" type="text" autocomplete="address-line2" maxlength="20" placeholder="Ex.: 120">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="question" for="logradouro">Rua ou avenida</label>
+          <input id="logradouro" name="logradouro" type="text" autocomplete="address-line1" maxlength="180" placeholder="Preenchida pelo CEP ou por você">
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="question" for="bairro">Bairro</label>
+            <input id="bairro" name="bairro" type="text" autocomplete="address-level3" maxlength="120" placeholder="Seu bairro">
+          </div>
+          <div class="form-group">
+            <label class="question" for="complemento">Complemento <span class="optional">Opcional</span></label>
+            <input id="complemento" name="complemento" type="text" maxlength="120" placeholder="Apto., bloco, referência...">
+          </div>
+        </div>
+        <div class="grid-2 city-state-row">
+          <div class="form-group">
+            <label class="question" for="cidade">Cidade</label>
+            <input id="cidade" name="cidade" type="text" autocomplete="address-level2" maxlength="120" placeholder="Sua cidade">
+          </div>
+          <div class="form-group">
+            <label class="question" for="uf">UF</label>
+            <input id="uf" name="uf" type="text" autocomplete="address-level1" maxlength="2" placeholder="ES" autocapitalize="characters">
+          </div>
+        </div>
+        <p class="address-footnote">O CEP será consultado no ViaCEP apenas para buscar o endereço. Nenhuma informação de saúde é enviada nessa consulta. Os campos não impedem o avanço para a próxima etapa.</p>
+      </div>
 
       <h3 class="subsection">Sobre a viagem</h3>
       <div class="grid-2">
@@ -198,11 +239,21 @@
 <div class="declaration">Declaro que as informações fornecidas são verdadeiras e completas segundo meu conhecimento. Comunicarei à médica qualquer mudança no meu estado de saúde antes da viagem.</div>
 <label class="check-row"><input type="checkbox" id="aceite"><span>Revisei as respostas e confirmo as informações acima.</span></label>
 <div class="form-group date-confirm"><label class="question" for="data_hoje">Data de preenchimento</label><input type="date" id="data_hoje" name="data_hoje"></div>
-<div class="delivery" id="entrega"><span class="kicker">PRÓXIMO PASSO</span><h3>Envie seu PDF à Dra. Joyce.</h3><p>Baixe o arquivo e envie na conversa individual pelo WhatsApp. A avaliação médica e o atestado serão feitos depois.</p>
-<button class="btn" type="button" id="downloadBtn"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5"/></svg>Baixar PDF</button>
+<div class="delivery" id="entrega">
+  <div class="delivery-head"><span class="kicker">PRÓXIMO PASSO · QUASE PRONTO</span><span class="delivery-chip">Cuidado individual</span></div>
+  <h3>Seu cuidado continua com a Dra. Joyce.</h3>
+  <p class="delivery-lead">Obrigada por dedicar estes minutos à sua saúde. Para concluirmos a avaliação antes da viagem, só faltam três passos simples:</p>
+  <ol class="delivery-steps">
+    <li><span class="delivery-step-number">01</span><span><strong>Baixe seu PDF</strong><small>Ele reúne suas respostas para a consulta.</small></span></li>
+    <li><span class="delivery-step-number">02</span><span><strong>Envie o PDF à Dra. Joyce pelo WhatsApp</strong><small>Use a nossa conversa individual. O formulário não envia sozinho.</small></span></li>
+    <li><span class="delivery-step-number">03</span><span><strong>Aguarde meu contato</strong><small>Vou falar com você para concluirmos sua avaliação médica individualmente.</small></span></li>
+  </ol>
+  <p class="delivery-reassure">Faltou algum detalhe no preenchimento? Tudo bem: os dados necessários poderão ser confirmados na consulta.</p>
+  <p class="delivery-disclaimer">Este formulário não é um atestado médico. Qualquer documento será emitido separadamente, quando indicado após a avaliação.</p>
+<button class="btn" type="button" id="downloadBtn"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5"/></svg>Baixar meu PDF</button>
 <button class="btn secondary" type="button" id="shareBtn" hidden><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16V3m-4 4 4-4 4 4M7 10H4v11h16V10h-3"/></svg>Compartilhar PDF</button>
 <p id="status" class="status" role="status" aria-live="polite"></p>
-<p class="delivery-hint" id="shareHint" hidden>No menu de compartilhamento, escolha o WhatsApp e a conversa com a Dra. Joyce.</p>
+<p class="delivery-hint" id="shareHint" hidden>No menu de compartilhamento, escolha o WhatsApp e a conversa individual com a Dra. Joyce.</p>
 <button class="text-button" type="button" id="printBtn">Imprimir ou salvar pelo navegador</button></div></section>
 <div class="form-navigation"><button class="back-button" id="backBtn" type="button" hidden>Voltar</button><span class="step-count" id="stepCount">Etapa 1 de 4</span><button class="btn next-button" id="nextBtn" type="button">Continuar</button></div>
 </form>
@@ -210,6 +261,6 @@
 <div class="help-links"><details><summary>Como enviar o PDF</summary><p>Ao concluir, toque em <strong>Baixar PDF</strong>. Abra sua conversa com a Dra. Joyce no WhatsApp e anexe o arquivo como documento.</p><p>Se aparecer <strong>Compartilhar PDF</strong>, você também pode usar esse botão e escolher o WhatsApp.</p><p>No iPhone, o PDF pode abrir em uma nova tela. Use o botão de compartilhar e escolha o WhatsApp ou “Salvar em Arquivos”.</p></details><details><summary>Suas informações</summary><p>As respostas ficam apenas nesta página enquanto ela está aberta. O envio acontece quando você compartilha o PDF. Envie somente à Dra. Joyce, em conversa individual.</p><p>Este formulário reúne suas informações de saúde. O atestado é emitido separadamente, após a avaliação médica.</p></details></div>
 <button class="text-button reset-button" type="button" id="resetBtn">Limpar minhas respostas</button>
 </div></main>
-<footer class="site-footer">Atendimento médico independente para participantes da viagem Tupperware.</footer>
+<footer class="site-footer">Atendimento médico individual e independente para participantes da viagem Tupperware. O formulário organiza informações para a consulta; não substitui a avaliação médica.</footer>
 <section id="printReport" class="print-report" aria-label="Resumo de saúde para avaliação médica"></section>
 </body></html>
