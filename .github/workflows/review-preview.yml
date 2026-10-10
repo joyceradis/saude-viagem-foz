@@ -1,0 +1,54 @@
+name: Previa do formulario (sem deploy)
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "assets/**"
+      - "scripts/review-preview.mjs"
+      - ".github/workflows/review-preview.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mobile-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/app.js
+          node --check scripts/review-preview.mjs
+      - name: Install ephemeral test browser
+        run: |
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright@1.55.1
+          npx playwright install --with-deps chromium
+      - name: Test form and capture mobile previews (fictional values only)
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/foz-preview.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" || true' EXIT
+          sleep 2
+          node scripts/review-preview.mjs
+      - name: Bundle local preview without publishing
+        if: always()
+        run: |
+          mkdir -p review-output/site
+          cp index.html review-output/site/
+          cp -R assets review-output/site/
+          printf '%s\n' 'PREVIA LOCAL: nenhum site publicado.' 'Para abrir em um computador: extraia site.zip; abra um terminal dentro da pasta site e execute python3 -m http.server 4173; visite http://localhost:4173/' 'Use dados ficticios nos testes. A busca de CEP requer conexao ao ViaCEP.' > review-output/LEIA-ME.txt
+          (cd review-output && zip -qr site.zip site)
+          rm -rf review-output/site
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: previa-foz-revisao
+          path: review-output/
+          retention-days: 7
