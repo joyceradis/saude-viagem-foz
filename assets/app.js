@@ -239,7 +239,7 @@ $('downloadBtn').addEventListener('click', () => {
     document.body.append(anchor); anchor.click(); anchor.remove();
     setTimeout(() => URL.revokeObjectURL(url), 60000);
     dirty = false;
-    $('status').textContent = 'PDF pronto. Envie o arquivo para a Dra. Joyce pelo WhatsApp. Se ele abriu em uma nova tela, use o botão de compartilhar.';
+    $('status').textContent = 'PDF pronto! Envie-o na nossa conversa individual pelo WhatsApp e aguarde meu contato para concluir a avaliação.';
   } catch { pdfError(); }
 });
 $('shareBtn').addEventListener('click', async () => {
@@ -247,7 +247,7 @@ $('shareBtn').addEventListener('click', async () => {
     const file = createPdf();
     await navigator.share({ files: [file], title: 'Informações de saúde pré-viagem' });
     dirty = false;
-    $('status').textContent = 'Confira na conversa com a Dra. Joyce se o PDF foi enviado.';
+    $('status').textContent = 'Confira se enviou o PDF à Dra. Joyce pelo WhatsApp. Depois, aguarde meu contato para concluirmos a avaliação.';
   } catch (error) {
     if (error.name !== 'AbortError') $('status').textContent = 'Baixe o PDF e anexe o arquivo na sua conversa com a Dra. Joyce pelo WhatsApp.';
   }
@@ -262,7 +262,128 @@ try {
   $('shareHint').hidden = !supportsSharing;
 } catch { /* The direct download remains available. */ }
 
+// Busca de endereço opcional. O formulário não bloqueia etapas nem envia dados clínicos.
+const cepInput = $('cep');
+const cepStatus = $('cepStatus');
+const cepAddressFields = ['logradouro', 'bairro', 'cidade', 'uf'];
+let cepController = null;
+let cepSequence = 0;
+let lastResolvedCep = '';
+
+function cepDigits(value) { return String(value).replace(/\D/g, '').slice(0, 8); }
+function formatCep(value) {
+  const digits = cepDigits(value);
+  return digits.length > 5 ? digits.slice(0, 5) + '-' + digits.slice(5) : digits;
+}
+function cepMessage(message, state = 'neutral') {
+  cepStatus.textContent = message;
+  cepStatus.dataset.state = state;
+}
+function cancelCepLookup() {
+  cepSequence++;
+  if (cepController) cepController.abort();
+  cepController = null;
+}
+function clearAutoAddress() {
+  for (const id of cepAddressFields) {
+    const input = $(id);
+    if (input.dataset.cepAutoValue && input.value === input.dataset.cepAutoValue) {
+      input.value = '';
+    }
+    delete input.dataset.cepAutoValue;
+  }
+}
+function addressChangedAutomatically() {
+  dirty = true;
+  pdfFile = null;
+  $('reviewSummary').replaceChildren();
+  $('printReport').replaceChildren();
+  $('status').textContent = '';
+}
+async function lookupCep() {
+  const cep = cepDigits(cepInput.value);
+  if (cep.length !== 8 || cep === lastResolvedCep) return;
+  cancelCepLookup();
+  const currentSequence = cepSequence;
+  const controller = new AbortController();
+  cepController = controller;
+  cepMessage('Buscando endereço pelo CEP…', 'loading');
+  const timeout = setTimeout(() => controller.abort(), 7000);
+  try {
+    const response = await fetch('https://viacep.com.br/ws/' + cep + '/json/', {
+      method: 'GET',
+      signal: controller.signal,
+      referrerPolicy: 'no-referrer'
+    });
+    if (!response.ok) throw new Error('CEP_LOOKUP_FAILED');
+    const data = await response.json();
+    if (currentSequence !== cepSequence || cepDigits(cepInput.value) !== cep) return;
+    if (data.erro) {
+      cepMessage('CEP não encontrado. Confira os números ou preencha o endereço manualmente.', 'warning');
+      return;
+    }
+    const values = {
+      logradouro: data.logradouro,
+      bairro: data.bairro,
+      cidade: data.localidade,
+      uf: data.uf
+    };
+    let updated = false;
+    for (const id of cepAddressFields) {
+      const input = $(id);
+      const candidate = typeof values[id] === 'string' ? values[id].trim().slice(0, input.maxLength || 180) : '';
+      if (!candidate) continue;
+      // Um endereço digitado pela viajante tem prioridade sobre o serviço externo.
+      const autoValue = input.dataset.cepAutoValue;
+      if (!input.value.trim() || (autoValue && input.value === autoValue)) {
+        input.value = candidate;
+        input.dataset.cepAutoValue = candidate;
+        updated = true;
+      }
+    }
+    lastResolvedCep = cep;
+    cepMessage(updated
+      ? 'Endereço encontrado! Confira rua, bairro, cidade e informe o número.'
+      : 'CEP localizado. Confira ou complete os campos do endereço.', 'success');
+    if (updated) addressChangedAutomatically();
+  } catch (error) {
+    if (currentSequence !== cepSequence) return;
+    cepMessage('Não foi possível consultar agora. Digite o endereço manualmente e continue normalmente.', 'warning');
+  } finally {
+    clearTimeout(timeout);
+    if (currentSequence === cepSequence) cepController = null;
+  }
+}
+cepInput.addEventListener('input', () => {
+  const oldCep = lastResolvedCep;
+  cepInput.value = formatCep(cepInput.value);
+  const currentCep = cepDigits(cepInput.value);
+  if (currentCep !== oldCep) {
+    cancelCepLookup();
+    if (oldCep) clearAutoAddress();
+    lastResolvedCep = '';
+    if (oldCep) addressChangedAutomatically();
+  }
+  if (currentCep.length === 8) {
+    void lookupCep();
+  } else {
+    cepMessage(currentCep.length ? 'Digite os 8 números do CEP ou preencha o endereço manualmente.' :
+      'Preencha o CEP ou digite o endereço manualmente.');
+  }
+});
+cepInput.addEventListener('blur', () => { void lookupCep(); });
+for (const id of cepAddressFields) {
+  $(id).addEventListener('input', event => { delete event.target.dataset.cepAutoValue; });
+}
+$('uf').addEventListener('input', event => {
+  event.target.value = event.target.value.replace(/[^a-zA-Z]/g, '').slice(0, 2).toUpperCase();
+});
+
 function reset() {
+  cancelCepLookup();
+  lastResolvedCep = '';
+  clearAutoAddress();
+  cepMessage('Preencha o CEP ou digite o endereço manualmente.');
   form.reset(); pdfFile = null;
   $('printReport').replaceChildren(); $('reviewSummary').replaceChildren();
   groups.forEach(g => updateConditional(g.dataset.requiredRadio));
