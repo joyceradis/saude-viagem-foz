@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'none'; form-action 'none'; font-src 'none'; base-uri 'none'; object-src 'none'">
+  <meta name="theme-color" content="#143f35">
+  <title>Conceito V2 · Foz do Iguaçu · Saúde pré-viagem</title>
+  <meta name="description" content="Prévia visual da experiência de saúde pré-viagem para Foz do Iguaçu. Demonstração sem coleta de dados.">
+  <style>
+    :root { color-scheme: light; --forest:#153f35; --forest2:#0c3029; --mint:#e7f0e7; --sage:#9cae97; --cream:#faf8f2; --cream2:#f3f0e7; --text:#183b31; --muted:#687a70; --rose:#dba88e; --line:#e3e9de; --gold:#cbb584; --display:Georgia,'Times New Roman',serif; --ui:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--text);font-family:var(--ui);-webkit-font-smoothing:antialiased}
+    button,a{-webkit-tap-highlight-color:transparent}
+    button{cursor:pointer;font:inherit}
+    button:focus-visible,a:focus-visible{outline:3px solid #ba775f;outline-offset:4px}
+    a{color:inherit}
+    [hidden]{display:none!important}
+    .preview-ribbon{min-height:33px;background:#f0e8d6;color:#615335;font-size:10px;font-weight:750;letter-spacing:.09em;display:flex;align-items:center;justify-content:center;padding:8px 16px;text-align:center;line-height:1.4}
+    .header{height:84px;padding:0 clamp(22px,6vw,84px);background:var(--cream);display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .identity{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .monogram{font:italic 27px/1 var(--display);border:1px solid #abc0ae;display:grid;place-items:center;border-radius:50%;width:46px;height:46px}
+    .brand{display:flex;flex-direction:column;gap:3px}
+    .brand strong{font:600 13px/1.15 var(--ui);letter-spacing:.15em}
+    .brand small{font-size:9px;letter-spacing:.12em;color:#607c6c}
+    .header-link{font-size:12px;font-weight:700;text-decoration:none;border-bottom:1px solid #9baa95;padding-bottom:5px;white-space:nowrap}
+    .hero{margin:0 clamp(12px,2.4vw,36px);height:min(720px,72vw);min-height:580px;position:relative;border-radius:10px 10px 88px 10px;overflow:hidden;background:#163f35;isolation:isolate}
+    .hero-photo{position:absolute;inset:0;background-image:url('../../assets/iguacu.jpg');background-size:cover;background-position:center 42%;z-index:-3;transform:scale(1.01)}
+    .hero::before{position:absolute;inset:0;content:'';background:linear-gradient(90deg,rgba(5,34,29,.89),rgba(8,40,33,.64) 40%,rgba(3,34,27,.08) 100%),linear-gradient(0deg,rgba(5,30,25,.44),transparent 40%);z-index:-2}
+    .hero-inner{height:100%;width:min(100%,1300px);padding:clamp(34px,7vw,110px);margin:auto;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+    .eyebrow{font-size:11px;color:#e4e5d6;font-weight:750;letter-spacing:.21em;display:flex;align-items:center;gap:10px}
+    .eyebrow::before{content:'';display:block;width:34px;height:1px;background:var(--gold)}
+    .hero h1{font-family:var(--display);font-size:clamp(74px,11vw,156px);letter-spacing:-.078em;line-height:.82;color:#fffaf0;font-weight:400;margin:27px 0 23px;max-width:780px}
+    .hero h1 em{display:block;font-weight:400;color:#e3ccb7;letter-spacing:-.075em}
+    .hero-copy{color:#ecf1e9;font-size:clamp(15px,1.4vw,19px);line-height:1.7;max-width:450px;margin:0 0 34px;font-weight:400}
+    .cta{border:0;display:inline-flex;align-items:center;justify-content:space-between;gap:38px;border-radius:50px;background:#f4eee1;color:#163f35;font-size:13px;font-weight:750;padding:17px 20px 17px 25px;min-height:56px;box-shadow:0 8px 20px #061a1830}
+    .cta svg{width:18px;height:18px}
+    .hero-side{position:absolute;right:clamp(24px,5vw,76px);bottom:37px;font-size:10px;color:#e9eade;letter-spacing:.13em}
+    .photo-credit{position:absolute;left:clamp(34px,7vw,110px);bottom:24px;color:#d5ddd7;font-size:10px;text-decoration:none}
+    .bloom{padding:90px 24px 72px;max-width:1130px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:75px;align-items:center}
+    .bloom-art{min-height:450px;border-radius:240px 240px 18px 18px;background:linear-gradient(135deg,#cadec7 0%,#a6c0a9 52%,#496e62 100%);position:relative;overflow:hidden;display:grid;place-items:center}
+    .bloom-art::before{content:'';position:absolute;width:480px;height:480px;bottom:-200px;left:-150px;border-radius:50%;background:#e9e9d6aa}
+    .bloom-art::after{content:'';position:absolute;width:280px;height:280px;right:-100px;top:-140px;border-radius:50%;border:60px solid #f1ebd99a}
+    .bloom-art svg{position:relative;width:70%;max-width:300px;filter:drop-shadow(12px 15px 22px #234b3455)}
+    .bloom-copy .mini{font-size:11px;color:#876d58;letter-spacing:.18em;font-weight:750}
+    .bloom h2,.preview-section h2,.destinations h2{font:normal clamp(42px,4.3vw,64px)/1.04 var(--display);letter-spacing:-.058em;margin:22px 0 19px}
+    .bloom h2 em{color:#759479;font-style:italic}
+    .bloom-copy p{max-width:425px;font-size:15px;line-height:1.9;color:#607469;margin:0 0 25px}
+    .three{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+    .step-pill{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:650;color:#436453}
+    .step-pill b{font:italic 22px var(--display);color:#bd9677}
+    .preview-section{background:#e8eee6;padding:85px 24px 100px}
+    .section-intro{text-align:center;max-width:650px;margin:auto}
+    .section-intro .mini{font-weight:750;letter-spacing:.18em;font-size:11px;color:#7d6b54}
+    .section-intro h2{margin-top:15px;margin-bottom:16px}
+    .section-intro p{color:#62786b;line-height:1.75;margin:0}
+    .demo-frame{width:min(100%,780px);margin:42px auto 0;border:1px solid #d6dfd5;border-radius:24px;background:#fffefa;box-shadow:0 22px 65px #31544320;overflow:hidden}
+    .demo-head{padding:25px 35px 22px;border-bottom:1px solid #e6ebe4;display:flex;gap:15px;justify-content:space-between;align-items:flex-start;background:#fbfcf7}
+    .demo-head small{display:block;color:#967e68;font-size:10px;letter-spacing:.17em;font-weight:750;margin-bottom:7px}
+    .demo-head strong{font:normal 27px/1.1 var(--display);letter-spacing:-.035em}
+    .demo-badge{font-size:10px;font-weight:800;color:#637d68;padding:7px 11px;background:#e9f0e8;border-radius:15px;white-space:nowrap}
+    .tracker{display:flex;gap:6px;padding:0 35px;margin-top:21px}
+    .tracker span{height:4px;flex:1;background:#e9eee7;border-radius:5px}
+    .tracker .active{background:#3e7a62}
+    .demo-body{padding:31px 35px 16px;min-height:310px}
+    .demo-body h3{font:normal 37px/1.15 var(--display);letter-spacing:-.052em;margin:0 0 13px}
+    .demo-sub{color:#6f8175;font-size:13px;line-height:1.6;margin:0 0 27px;max-width:500px}
+    .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .fake-field{min-width:0}
+    .fake-field.wide{grid-column:1/-1}
+    .fake-field label{display:block;font-size:11px;font-weight:800;color:#4a6957;margin-bottom:7px}
+    .fake-input{background:#f7f9f6;border:1px solid #dce6dc;min-height:47px;border-radius:10px;padding:12px 14px;color:#809387;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .fake-input.prefilled{color:#365847;background:#eef5eb}
+    .inline-note{font-size:11px;color:#718777;margin:14px 0 0;line-height:1.6}
+    .question-choices{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 16px}
+    .chip{font-size:13px;padding:12px 20px;border:1px solid #dbe5d9;border-radius:30px;background:#f7faf6;color:#4e6a58}
+    .chip.chosen{background:#dfece1;border-color:#8bb29b}
+    .final-example{padding:19px;border:1px solid #dae8d8;background:#f2f7ef;border-radius:14px}
+    .final-example strong{display:block;font:normal 25px var(--display);color:#214e3e;margin-bottom:9px}
+    .final-example p{font-size:13px;line-height:1.7;color:#5d7565;margin:0}
+    .demo-controls{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:23px 35px 30px}
+    .back{border:0;background:transparent;color:#5a7866;padding:14px 6px;font-size:12px;font-weight:700}
+    .forward{background:#245946;color:white;border:0;border-radius:40px;min-width:158px;padding:14px 20px;font-size:13px;font-weight:750;min-height:49px}
+    .demo-warning{font-size:10px;line-height:1.65;color:#7c8d80;text-align:center;max-width:620px;margin:20px auto 0}
+    .destinations{padding:90px 24px 105px;max-width:1130px;margin:auto}
+    .destinations-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:23px}
+    .destinations-head h2{margin-bottom:0}
+    .destinations-head p{color:#698070;font-size:13px;line-height:1.7;max-width:280px;margin:0}
+    .tiles{display:grid;grid-template-columns:1.45fr .8fr;gap:18px}
+    .tile{border-radius:17px;min-height:320px;padding:27px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative;isolation:isolate}
+    .tile.iguacu{background:var(--forest);color:white}
+    .tile.iguacu::before{content:'';z-index:-1;position:absolute;inset:0;background-image:linear-gradient(90deg,#092e2799,#092e2700),url('../../assets/iguacu.jpg');background-position:center;background-size:cover}
+    .tile.soon{background:linear-gradient(150deg,#e6e9d8,#cfddcb);color:#315547}
+    .tile .tile-top{font-size:10px;letter-spacing:.14em;font-weight:750}
+    .tile h3{font:normal 39px/1 var(--display);letter-spacing:-.045em;margin:0}
+    .tile p{font-size:12px;line-height:1.6;max-width:200px}
+    .tile.soon::after{content:'';position:absolute;border:38px solid #b0c8b1;opacity:.44;width:260px;height:260px;border-radius:50%;right:-120px;top:-90px;z-index:-1}
+    .footer{background:#143f35;color:#dfe7dc;padding:46px clamp(24px,5vw,85px)}
+    .footer-inner{max-width:1160px;margin:auto;display:flex;justify-content:space-between;gap:18px;align-items:center}
+    .footer strong{font:normal 25px var(--display)}
+    .footer p{max-width:360px;font-size:11px;line-height:1.7;color:#b5c8ba}
+    @media(min-width:1100px){.bloom-art{min-height:490px}}
+    @media(max-width:800px){
+      .hero{min-height:660px;height:74vh}
+      .hero::before{background:linear-gradient(90deg,#0c342ba8,#0b3c3059),linear-gradient(0deg,#052a25b0,transparent 70%)}
+      .hero-inner{padding:35px}
+      .bloom{gap:35px;padding:70px 25px;grid-template-columns:.9fr 1.1fr}
+      .bloom-art{min-height:340px}
+      .tiles{grid-template-columns:1.3fr 1fr}
+    }
+    @media(max-width:600px){
+      .preview-ribbon{font-size:9px;padding:9px 15px}
+      .header{height:72px;padding:0 22px}
+      .monogram{width:38px;height:38px;font-size:22px}
+      .brand strong{font-size:11px}
+      .brand small{font-size:8px}
+      .header-link{font-size:11px}
+      .hero{margin:0 8px;min-height:600px;height:min(730px,78svh);border-radius:9px 9px 45px 9px}
+      .hero-photo{background-position:58% center}
+      .hero::before{background:linear-gradient(180deg,#0c352c19 1%,#0b312766 33%,#06251fe8 100%)}
+      .hero-inner{justify-content:end;padding:29px 26px 82px}
+      .eyebrow{font-size:9px;letter-spacing:.17em}
+      .eyebrow::before{width:18px}
+      .hero h1{font-size:clamp(69px,17vw,100px);margin:26px 0 19px;letter-spacing:-.075em}
+      .hero-copy{font-size:14px;line-height:1.7;max-width:320px;margin-bottom:26px}
+      .cta{min-height:55px;width:min(100%,310px);font-size:12px}
+      .hero-side{bottom:19px;right:21px;font-size:8px;letter-spacing:.08em}
+      .photo-credit{bottom:19px;left:26px;font-size:8px}
+      .bloom{grid-template-columns:1fr;gap:27px;padding:54px 28px 67px}
+      .bloom-art{min-height:260px;height:275px;order:2;border-radius:140px 140px 15px 15px}
+      .bloom-art svg{height:215px}
+      .bloom-copy{order:1}
+      .bloom h2,.destinations h2{font-size:45px;margin:16px 0}
+      .bloom-copy p{font-size:14px;margin-bottom:20px}
+      .three{gap:12px;margin-top:22px}
+      .step-pill{font-size:11px}
+      .preview-section{padding:62px 16px 65px}
+      .section-intro h2{font-size:43px}
+      .section-intro p{font-size:13px}
+      .demo-frame{margin-top:30px;border-radius:18px}
+      .demo-head{padding:20px 18px 16px}
+      .demo-head strong{font-size:22px}
+      .demo-badge{font-size:8px}
+      .tracker{padding:0 18px;margin-top:17px}
+      .demo-body{padding:24px 18px 8px;min-height:300px}
+      .demo-body h3{font-size:31px}
+      .demo-sub{font-size:12px}
+      .field-grid{gap:11px}
+      .fake-input{font-size:12px;padding:12px 10px;min-height:44px}
+      .demo-controls{padding:14px 18px 24px}
+      .destinations{padding:62px 20px 72px}
+      .destinations-head{align-items:flex-start;flex-direction:column;gap:0}
+      .destinations-head h2{margin-bottom:12px}
+      .destinations-head p{max-width:340px}
+      .tiles{grid-template-columns:1fr}
+      .tile{min-height:265px}
+      .tile.soon{min-height:190px}
+      .footer{padding:35px 24px}
+      .footer-inner{flex-direction:column;align-items:flex-start}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <div class="preview-ribbon">CONCEITO VISUAL V2 · DEMONSTRAÇÃO · NÃO INFORME DADOS PESSOAIS OU DE SAÚDE</div>
+  <header class="header">
+    <a class="identity" href="#inicio" aria-label="Voltar ao início da demonstração">
+      <span class="monogram">JR</span>
+      <span class="brand"><strong>JOYCE RADIS</strong><small>MEDICINA & CUIDADO</small></span>
+    </a>
+    <a class="header-link" href="#experiencia">Explorar a prévia ↗</a>
+  </header>
+  <main>
+    <section class="hero" id="inicio" aria-label="Foz do Iguaçu">
+      <div class="hero-photo" role="img" aria-label="Fotografia das Cataratas do Iguaçu"></div>
+      <div class="hero-inner">
+        <span class="eyebrow">VIAGEM TUPPERWARE · FOZ DO IGUAÇU</span>
+        <h1>Viva o<br><em>extraordinário.</em></h1>
+        <p class="hero-copy">Uma viagem especial merece ser vivida com tranquilidade. Seu cuidado começa antes mesmo de embarcar.</p>
+        <button class="cta" type="button" data-scroll="#experiencia">Conhecer a experiência <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+      </div>
+      <a class="photo-credit" target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Iguazu_Falls_Panorama_2009.jpg">Fotografia: Mariordo · CC BY-SA 4.0</a>
+      <span class="hero-side">FOZ DO IGUAÇU · PARANÁ, BRASIL</span>
+    </section>
+    <section class="bloom" aria-label="Uma experiência com cuidado">
+      <div class="bloom-art" aria-hidden="true">
+        <svg viewBox="0 0 300 350" xmlns="http://www.w3.org/2000/svg">
+          <path d="M145 332C152 241 136 149 151 45" fill="none" stroke="#365f46" stroke-width="7" stroke-linecap="round"/>
+          <path d="M151 210C48 201 28 127 44 82 129 86 165 132 151 210Z" fill="#577f5f"/>
+          <path d="M145 278c107-4 151-84 127-141-90 2-135 55-127 141Z" fill="#385f4c"/>
+          <path d="M151 142C98 109 115 41 167 9c49 53 34 100-16 133Z" fill="#789a71"/>
+          <path d="M151 210c-37-55-74-88-107-128M145 278c54-72 85-103 127-141M151 142c21-61 15-79 16-133" stroke="#b4d0a4" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M140 325c-36-38-70-49-110-44 22 48 65 63 110 44Z" fill="#99b28c"/>
+        </svg>
+      </div>
+      <div class="bloom-copy">
+        <span class="mini">CUIDADO QUE ACOMPANHA</span>
+        <h2>Antes da viagem, <em>você.</em></h2>
+        <p>Você conquistou um momento especial. Para aproveitá-lo, a avaliação pré-viagem começa com algumas informações de saúde e continua em uma conversa individual com sua médica.</p>
+        <div class="three">
+          <span class="step-pill"><b>01</b> Fácil no celular</span>
+          <span class="step-pill"><b>02</b> Seu tempo importa</span>
+          <span class="step-pill"><b>03</b> Atenção individual</span>
+        </div>
+      </div>
+    </section>
+    <section class="preview-section" id="experiencia">
+      <div class="section-intro">
+        <span class="mini">VEJA COMO PODERIA SER</span>
+        <h2>Simples de preencher.<br>Especial de viver.</h2>
+        <p>Um conceito visual para você aprovar. Abaixo, navegue pelas telas ilustrativas. Esta prévia não recebe informações reais e não produz documentos.</p>
+      </div>
+      <div class="demo-frame" role="region" aria-label="Demonstração interativa de telas">
+        <div class="demo-head">
+          <div><small>FOZ DO IGUAÇU · 04 ETAPAS</small><strong>Sua preparação para a viagem</strong></div>
+          <span class="demo-badge">DEMO</span>
+        </div>
+        <div class="tracker" id="tracker" aria-label="Progresso da demonstração"><span class="active"></span><span></span><span></span><span></span></div>
+        <div class="demo-body" id="demoBody" aria-live="polite">
+          <h3>Primeiro, vamos nos conhecer.</h3>
+          <p class="demo-sub">Informações básicas, em uma tela leve e direta, sem exigir formatação perfeita.</p>
+          <div class="field-grid">
+            <div class="fake-field wide"><label>Nome completo</label><div class="fake-input">Exemplo: Ana de Oliveira</div></div>
+            <div class="fake-field"><label>Data de nascimento</label><div class="fake-input">Dia / Mês / Ano</div></div>
+            <div class="fake-field"><label>WhatsApp</label><div class="fake-input">(00) 00000-0000</div></div>
+            <div class="fake-field wide"><label>CEP · endereço pode ser confirmado depois</label><div class="fake-input">00000-000</div></div>
+          </div>
+        </div>
+        <div class="demo-controls">
+          <button class="back" type="button" id="backBtn" hidden>← Voltar</button>
+          <span id="count" class="inline-note" style="margin:0">Etapa 1 de 4</span>
+          <button class="forward" type="button" id="nextBtn">Continuar →</button>
+        </div>
+      </div>
+      <p class="demo-warning">PRÉVIA VISUAL. Exemplos fictícios e ilustrativos. Não substitui a consulta médica, não envia respostas, não gera PDF e não emite atestado. O formulário original permanece disponível no link já compartilhado com as viajantes.</p>
+    </section>
+    <section class="destinations" id="destinos">
+      <div class="destinations-head">
+        <h2>Uma experiência.<br>Novos destinos.</h2>
+        <p>O conceito poderá acompanhar futuras viagens, com uma atmosfera própria para cada destino. Ainda não é um serviço multi-viagens disponível.</p>
+      </div>
+      <div class="tiles">
+        <article class="tile iguacu"><span class="tile-top">DESTINO EM ATENDIMENTO</span><div><h3>Foz do Iguaçu</h3><p>O começo de uma jornada de cuidado antes de embarcar.</p></div></article>
+        <article class="tile soon"><span class="tile-top">VISÃO FUTURA</span><div><h3>Outras viagens,<br>novas histórias.</h3><p>Arquitetura reutilizável, a desenvolver após aprovação.</p></div></article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>Dra. Joyce Radis</strong><p>Médica · CRM-ES 21188. Atendimento individual e independente. Identidade visual em estudo, sem vínculo oficial de patrocínio com a organização da viagem.</p></div>
+      <p>Conceito V2 para revisão · sem coleta de dados pessoais.<br>Fotografia de Foz: Mariordo, CC BY-SA 4.0.</p>
+    </div>
+  </footer>
+  <script>
+    'use strict';
+    const slides=[
+      {title:'Primeiro, vamos nos conhecer.',sub:'Informações básicas, em uma tela leve e direta, sem exigir formatação perfeita.',html:'<div class="field-grid"><div class="fake-field wide"><label>Nome completo</label><div class="fake-input">Exemplo: Ana de Oliveira</div></div><div class="fake-field"><label>Data de nascimento</label><div class="fake-input">Dia / Mês / Ano</div></div><div class="fake-field"><label>WhatsApp</label><div class="fake-input">(00) 00000-0000</div></div><div class="fake-field wide"><label>CEP · endereço pode ser confirmado depois</label><div class="fake-input">00000-000</div></div></div>'},
+      {title:'Um pouco sobre a sua saúde.',sub:'Perguntas simples para organizar a conversa médica. Na versão real, respostas incompletas não significam respostas negativas.',html:'<div class="fake-field"><label>Você faz uso de medicamentos?</label><div class="question-choices"><span class="chip">Sim</span><span class="chip chosen">Não</span><span class="chip">Não sei</span></div></div><div class="fake-field"><label>Alguma condição de saúde em acompanhamento?</label><div class="question-choices"><span class="chip">Sim</span><span class="chip chosen">Não</span><span class="chip">Não sei</span></div></div><p class="inline-note">Opções meramente ilustrativas, sem coleta ou armazenamento.</p>'},
+      {title:'Como você está hoje?',sub:'Seu estado atual de saúde também importa para a avaliação individual.',html:'<div class="fake-field"><label>Está sentindo algum sintoma importante atualmente?</label><div class="question-choices"><span class="chip">Sim</span><span class="chip chosen">Não</span><span class="chip">Não sei</span></div></div><div class="fake-field" style="margin-top:20px"><label>Algo que gostaria de contar à médica?</label><div class="fake-input">Espaço para observações, se desejar...</div></div><p class="inline-note">Em caso de sintomas urgentes, não espere a resposta do formulário: procure atendimento.</p>'},
+      {title:'Pronta para o próximo passo.',sub:'Uma conclusão clara e acolhedora, sem confundir o formulário com a consulta.',html:'<div class="final-example"><strong>Agora, seguimos juntas.</strong><p>1. Baixe seu resumo de informações.<br>2. Envie o PDF à Dra. Joyce pelo WhatsApp individual.<br>3. Aguarde meu contato para concluirmos a avaliação médica.</p></div><p class="inline-note">A emissão de eventual documento depende de avaliação médica individual. Este é apenas um exemplo de tela: nenhum PDF será gerado aqui.</p>'}
+    ];
+    let current=0;
+    const root=document.getElementById('demoBody');
+    const count=document.getElementById('count');
+    const track=document.getElementById('tracker');
+    const previous=document.getElementById('backBtn');
+    const next=document.getElementById('nextBtn');
+    function render(){
+      const item=slides[current];
+      root.innerHTML='<h3>'+item.title+'</h3><p class="demo-sub">'+item.sub+'</p>'+item.html;
+      [...track.children].forEach((span,index)=>span.classList.toggle('active',index<=current));
+      count.textContent='Etapa '+(current+1)+' de 4';
+      previous.hidden=current===0;
+      next.textContent=current===slides.length-1?'Rever experiência ↺':'Continuar →';
+    }
+    previous.addEventListener('click',()=>{current=Math.max(0,current-1);render();});
+    next.addEventListener('click',()=>{current=(current+1)%slides.length;render();});
+    document.querySelectorAll('[data-scroll]').forEach(button=>button.addEventListener('click',()=>document.querySelector(button.dataset.scroll)?.scrollIntoView({behavior:'smooth'})));
+  </script>
+</body>
+</html>
