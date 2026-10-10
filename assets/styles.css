@@ -257,3 +257,7 @@ textarea { resize: vertical; min-height: 104px; }
   .address-panel .city-state-row { grid-template-columns: minmax(0,3fr) minmax(74px,1fr); gap: 9px; }
   .delivery-head { align-items: flex-start; }
 }
+
+/* Apenas na branch de demonstracao: nunca aparece no formulario oficial */
+.preview-only-banner { background: #fdf5de; color: #674f22; border-bottom: 1px solid #ecdeb8; padding: 10px 18px; text-align: center; font-size: 12px; line-height: 1.45; }
+.preview-only-banner strong { letter-spacing: .07em; font-size: 11px; }
