@@ -8,7 +8,7 @@
 
 ## Como funciona para a participante
 
-1. Preencha **seus dados**, **histórico de saúde**, **condição atual** e **revisão/declaração**.
+1. Preencha **seus dados e endereço**, **histórico de saúde**, **condição atual** e **revisão/declaração**. Ao informar o CEP, a versão proposta busca rua, bairro, cidade e UF; número e complemento podem ser digitados. Nenhum desses campos impede a navegação.
 2. Baixe o PDF com suas respostas. Em celulares compatíveis, a opção **Compartilhar PDF** também pode aparecer.
 3. Envie o arquivo **somente na conversa individual com a médica**, pelo WhatsApp, antes da consulta ou conforme a orientação recebida.
 4. A médica realiza a **avaliação individual**, define a conduta e, **quando houver indicação clínica**, emite o documento médico pertinente por sistema próprio.
@@ -22,12 +22,13 @@
 | Componente | Implementação |
 | --- | --- |
 | Quatro etapas | `index.html` e `assets/app.js` |
+| Endereço por CEP, com edição e preenchimento manual | `assets/app.js` (ViaCEP; apenas o CEP é consultado) |
 | Layout responsivo, impressão e acessibilidade básica | `assets/styles.css` e `index.html` |
 | Geração local do PDF | `assets/app.js` + jsPDF 3.0.3 distribuído em `assets/vendor/` |
 | Compartilhamento, quando suportado pelo navegador | API nativa de compartilhamento de arquivos, acionada pela participante |
 | Créditos e licenças dos materiais visuais | [`assets/CREDITS.md`](assets/CREDITS.md) |
 
-O código atual é **estático**, sem servidor de aplicação, banco de dados, conta de usuário ou transmissão automática das respostas. O preenchimento ocorre na memória do navegador. **O PDF salvo e a mensagem enviada por WhatsApp passam a depender do aparelho, do aplicativo e dos cuidados de quem os recebe.** Não confundir ausência de banco da aplicação com ausência de obrigação de sigilo médico.
+A aplicação é **estática**, sem servidor próprio, banco de dados ou conta de usuário. As respostas de saúde ficam na memória da página; elas não são transmitidas pelo formulário a um servidor de pacientes. **Nesta versão proposta, somente os oito dígitos do CEP são enviados ao [ViaCEP](https://viacep.com.br/) para obter rua, bairro, cidade e UF.** A consulta depende da conexão com um serviço externo, pode falhar e nunca bloqueia o preenchimento manual ou a navegação. **O PDF salvo e a mensagem enviada por WhatsApp passam a depender do aparelho, do aplicativo e dos cuidados de quem os recebe.** Não confundir ausência de banco da aplicação com ausência de obrigação de sigilo médico.
 
 **Transparência:** o repositório e os arquivos do site são **públicos**, pois integram a publicação por GitHub Pages. Isso **não** torna públicas as respostas individuais: elas não fazem parte do código-fonte, e o sistema não deve receber dados reais de pacientes em commits, issues, testes ou capturas.
 
@@ -43,7 +44,7 @@ O endereço acima está sendo compartilhado entre as participantes. Enquanto hou
 - Comparar toda mudança com a release `v5.0.0`. Para restaurar produção, partir do commit da release depois de analisar o histórico e o método de deploy.
 - Não adicionar teleconsulta automática, upload remoto, rastreadores, autenticação, analytics ou armazenamento de saúde sem avaliação prévia de segurança, LGPD e responsabilidade profissional.
 
-**Status desta proposta documental:** reorganização de orientações, sem mudanças na interface, nas bibliotecas, na lógica do PDF, nas respostas ou no deploy.
+**Status da branch de revisão:** formulário, endereço e mensagem final modificados apenas no PR. A produção `main` continua intacta na release `v5.0.0`; não houve deploy da nova versão.
 
 ## Critérios mínimos para uma atualização futura
 
@@ -53,6 +54,8 @@ Usar **somente dados fictícios**, idealmente após validar numa cópia servida 
 - Verificar PDF com respostas curtas, extensas e campos vazios; salvar e abrir o arquivo em leitor comum.
 - Testar compartilhamento nativo quando disponível e alternativas **Baixar PDF** e **Imprimir** quando não estiver.
 - Testar celular (incluindo Safari/iPhone), desktop, teclado e legibilidade/uso com zoom.
+- Confirmar que **apenas o CEP** é transmitido ao ViaCEP durante o autocompletar, sem CPF, telefone ou informações clínicas, e que não há dados pessoais reais no repositório.
+- Testar CEP válido/inválido/inexistente, indisponibilidade da rede, edição manual de rua e troca rápida de CEP, sem travar o avanço.
 - Confirmar que nenhuma resposta é enviada automaticamente a terceiros e que não há dados pessoais no repositório.
 - Verificar o endereço antigo depois de qualquer mudança de hospedagem, domínio ou redirecionamento; **não pressupor continuidade sem teste real**.
 
