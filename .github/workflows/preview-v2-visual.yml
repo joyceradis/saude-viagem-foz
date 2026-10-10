@@ -1,0 +1,78 @@
+name: Revisao visual V2 (sem alterar formulario)
+
+on:
+  push:
+    paths:
+      - "previews/v2/**"
+      - ".github/workflows/preview-v2-visual.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-preview:
+    name: Validate and capture V2
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install browser for isolated screenshots
+        run: |
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright@1.55.1
+          npx playwright install --with-deps chromium
+      - name: Mobile and desktop smoke test (no user inputs)
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/preview-v2.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" || true' EXIT
+          sleep 2
+          node --input-type=module <<'JS'
+          import { chromium } from 'playwright';
+          import assert from 'node:assert/strict';
+          import { mkdirSync } from 'node:fs';
+          mkdirSync('visual-v2',{recursive:true});
+          const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
+          const errors=[];
+          const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true});
+          page.on('pageerror',e=>errors.push(e.message));
+          const resources=[];
+          page.on('response',r=>{if(r.url().includes('/assets/iguacu.jpg'))resources.push(r.status())});
+          const res=await page.goto('http://127.0.0.1:4173/previews/v2/',{waitUntil:'networkidle'});
+          assert.equal(res.status(),200);
+          assert.match(await page.title(),/Conceito V2/);
+          assert.equal(await page.locator('form').count(),0,'A demo não deve coletar dados reais');
+          assert.equal(await page.locator('input').count(),0);
+          assert.match(await page.locator('.hero h1').innerText(),/extraordinário/i);
+          assert.ok(resources.includes(200),'Foto das Cataratas carregou');
+          assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+2),'sem scroll horizontal no celular');
+          await page.screenshot({path:'visual-v2/01-primeira-tela-iphone.png',fullPage:false});
+          await page.screenshot({path:'visual-v2/02-pagina-inteira-mobile.png',fullPage:true});
+          await page.locator('[data-scroll="#experiencia"]').click();
+          await page.waitForTimeout(600);
+          assert.ok(await page.locator('#demoBody').isVisible());
+          await page.locator('#nextBtn').click();
+          assert.match(await page.locator('#demoBody h3').innerText(),/saúde/i);
+          await page.locator('#nextBtn').click();
+          assert.match(await page.locator('#demoBody h3').innerText(),/hoje/i);
+          await page.locator('#nextBtn').click();
+          assert.match(await page.locator('#demoBody').innerText(),/aguarde meu contato/i);
+          await page.screenshot({path:'visual-v2/03-quarta-etapa-mobile.png',fullPage:false});
+          await page.locator('#nextBtn').click();
+          assert.match(await page.locator('#demoBody h3').innerText(),/conhecer/i);
+          assert.deepEqual(errors,[],'nenhum erro de JS');
+          const desktop=await browser.newPage({viewport:{width:1440,height:900},deviceScaleFactor:1});
+          await desktop.goto('http://127.0.0.1:4173/previews/v2/',{waitUntil:'networkidle'});
+          await desktop.screenshot({path:'visual-v2/04-desktop-hero.png',fullPage:false});
+          console.log('PASS: isolated preview V2, hero photo, mobile layout, four demo steps, no health data collection');
+          await browser.close();
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: foz-v2-previsualizacao
+          path: visual-v2/
+          retention-days: 7
